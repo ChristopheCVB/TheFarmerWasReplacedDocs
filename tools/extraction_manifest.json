@@ -1,0 +1,1575 @@
+{
+  "unity_version": "6000.0.43f1",
+  "created_utc": "2026-11-02T22:11:34.502922+00:00",
+  "guide_count": 65,
+  "example_count": 146,
+  "string_counts": {
+    "code_tooltips": 91,
+    "unlock_tooltips": 135,
+    "object_tooltips": 49,
+    "item_tooltips": 23,
+    "hat_tooltips": 33,
+    "leaderboard_tooltips": 30
+  },
+  "record_counts": {
+    "objects": 16,
+    "grounds": 26,
+    "hats": 38,
+    "items": 20,
+    "leaderboards": 30,
+    "unlocks": 53
+  },
+  "images": [
+    {
+      "name": "Breakpoints",
+      "width": 98,
+      "height": 227
+    },
+    {
+      "name": "ImportsInOnePicture",
+      "width": 1240,
+      "height": 741
+    },
+    {
+      "name": "UndergroundLeaderboardSetup",
+      "width": 561,
+      "height": 358
+    },
+    {
+      "name": "PlayButton",
+      "width": 1097,
+      "height": 135
+    },
+    {
+      "name": "LeaderboardSetup",
+      "width": 1377,
+      "height": 685
+    }
+  ],
+  "gaps": [
+    "hats/golden_carrot_hat: no description is present in the selected English text resources.",
+    "hats/golden_tree_hat: no description is present in the selected English text resources.",
+    "hats/interndotgif: no description is present in the selected English text resources.",
+    "hats/low_orbit_potato: no description is present in the selected English text resources.",
+    "hats/olexas_hood: no description is present in the selected English text resources."
+  ],
+  "source_entries": {
+    "auto_unlock": [
+      "unlocks/auto_unlock.md"
+    ],
+    "bamboo": [
+      "unlocks/bamboo.md"
+    ],
+    "cactus": [
+      "unlocks/cactus.md"
+    ],
+    "carrots": [
+      "unlocks/carrots.md"
+    ],
+    "coal": [
+      "unlocks/coal.md"
+    ],
+    "code_tooltip_East": [
+      "code/East.md"
+    ],
+    "code_tooltip_Entities": [
+      "code/Entities.md"
+    ],
+    "code_tooltip_False": [
+      "code/False.md"
+    ],
+    "code_tooltip_Grounds": [
+      "code/Grounds.md"
+    ],
+    "code_tooltip_Hats": [
+      "code/Hats.md"
+    ],
+    "code_tooltip_Items": [
+      "code/Items.md"
+    ],
+    "code_tooltip_Leaderboards": [
+      "code/Leaderboards.md"
+    ],
+    "code_tooltip_None": [
+      "code/None.md"
+    ],
+    "code_tooltip_North": [
+      "code/North.md"
+    ],
+    "code_tooltip_South": [
+      "code/South.md"
+    ],
+    "code_tooltip_True": [
+      "code/True.md"
+    ],
+    "code_tooltip_Unlocks": [
+      "code/Unlocks.md"
+    ],
+    "code_tooltip_West": [
+      "code/West.md"
+    ],
+    "code_tooltip_abs": [
+      "code/abs.md"
+    ],
+    "code_tooltip_add": [
+      "code/add.md"
+    ],
+    "code_tooltip_and": [
+      "code/and.md"
+    ],
+    "code_tooltip_append": [
+      "code/append.md"
+    ],
+    "code_tooltip_break": [
+      "code/break.md"
+    ],
+    "code_tooltip_can_harvest": [
+      "code/can_harvest.md"
+    ],
+    "code_tooltip_can_move": [
+      "code/can_move.md"
+    ],
+    "code_tooltip_can_push": [
+      "code/can_push.md"
+    ],
+    "code_tooltip_change_hat": [
+      "code/change_hat.md"
+    ],
+    "code_tooltip_clear": [
+      "code/clear.md"
+    ],
+    "code_tooltip_continue": [
+      "code/continue.md"
+    ],
+    "code_tooltip_def": [
+      "code/def.md"
+    ],
+    "code_tooltip_dict": [
+      "code/dict.md"
+    ],
+    "code_tooltip_dig": [
+      "code/dig.md"
+    ],
+    "code_tooltip_do_a_flip": [
+      "code/do_a_flip.md"
+    ],
+    "code_tooltip_elif": [
+      "code/elif.md"
+    ],
+    "code_tooltip_else": [
+      "code/else.md"
+    ],
+    "code_tooltip_for": [
+      "code/for.md"
+    ],
+    "code_tooltip_get_companion": [
+      "code/get_companion.md"
+    ],
+    "code_tooltip_get_cost": [
+      "code/get_cost.md"
+    ],
+    "code_tooltip_get_entity_type": [
+      "code/get_entity_type.md"
+    ],
+    "code_tooltip_get_ground_type": [
+      "code/get_ground_type.md"
+    ],
+    "code_tooltip_get_hardness": [
+      "code/get_hardness.md"
+    ],
+    "code_tooltip_get_hover": [
+      "code/get_hover.md"
+    ],
+    "code_tooltip_get_pos_x": [
+      "code/get_pos_x.md"
+    ],
+    "code_tooltip_get_pos_y": [
+      "code/get_pos_y.md"
+    ],
+    "code_tooltip_get_pos_z": [
+      "code/get_pos_z.md"
+    ],
+    "code_tooltip_get_stability": [
+      "code/get_stability.md"
+    ],
+    "code_tooltip_get_tick_count": [
+      "code/get_tick_count.md"
+    ],
+    "code_tooltip_get_time": [
+      "code/get_time.md"
+    ],
+    "code_tooltip_get_water": [
+      "code/get_water.md"
+    ],
+    "code_tooltip_get_world_size": [
+      "code/get_world_size.md"
+    ],
+    "code_tooltip_harvest": [
+      "code/harvest.md"
+    ],
+    "code_tooltip_has_finished": [
+      "code/has_finished.md"
+    ],
+    "code_tooltip_hover": [
+      "code/hover.md"
+    ],
+    "code_tooltip_if": [
+      "code/if.md"
+    ],
+    "code_tooltip_insert": [
+      "code/insert.md"
+    ],
+    "code_tooltip_jump": [
+      "code/jump.md"
+    ],
+    "code_tooltip_leaderboard_run": [
+      "code/leaderboard_run.md"
+    ],
+    "code_tooltip_len": [
+      "code/len.md"
+    ],
+    "code_tooltip_list": [
+      "code/list.md"
+    ],
+    "code_tooltip_max": [
+      "code/max.md"
+    ],
+    "code_tooltip_max_drones": [
+      "code/max_drones.md"
+    ],
+    "code_tooltip_measure": [
+      "code/measure.md"
+    ],
+    "code_tooltip_min": [
+      "code/min.md"
+    ],
+    "code_tooltip_move": [
+      "code/move.md"
+    ],
+    "code_tooltip_not": [
+      "code/not.md"
+    ],
+    "code_tooltip_num_drones": [
+      "code/num_drones.md"
+    ],
+    "code_tooltip_num_items": [
+      "code/num_items.md"
+    ],
+    "code_tooltip_num_unlocked": [
+      "code/num_unlocked.md"
+    ],
+    "code_tooltip_or": [
+      "code/or.md"
+    ],
+    "code_tooltip_pass": [
+      "code/pass.md"
+    ],
+    "code_tooltip_pet_the_piggy": [
+      "code/pet_the_piggy.md"
+    ],
+    "code_tooltip_place": [
+      "code/place.md"
+    ],
+    "code_tooltip_plant": [
+      "code/plant.md"
+    ],
+    "code_tooltip_pop": [
+      "code/pop.md"
+    ],
+    "code_tooltip_print": [
+      "code/print.md"
+    ],
+    "code_tooltip_prospect_iron": [
+      "code/prospect_iron.md"
+    ],
+    "code_tooltip_prospect_quartz": [
+      "code/prospect_quartz.md"
+    ],
+    "code_tooltip_push": [
+      "code/push.md"
+    ],
+    "code_tooltip_quick_print": [
+      "code/quick_print.md"
+    ],
+    "code_tooltip_random": [
+      "code/random.md"
+    ],
+    "code_tooltip_range": [
+      "code/range.md"
+    ],
+    "code_tooltip_remove": [
+      "code/remove.md"
+    ],
+    "code_tooltip_reset": [
+      "code/reset.md"
+    ],
+    "code_tooltip_return": [
+      "code/return.md"
+    ],
+    "code_tooltip_set": [
+      "code/set.md"
+    ],
+    "code_tooltip_set_execution_speed": [
+      "code/set_execution_speed.md"
+    ],
+    "code_tooltip_set_world_size": [
+      "code/set_world_size.md"
+    ],
+    "code_tooltip_simulate": [
+      "code/simulate.md"
+    ],
+    "code_tooltip_spawn_drone": [
+      "code/spawn_drone.md"
+    ],
+    "code_tooltip_str": [
+      "code/str.md"
+    ],
+    "code_tooltip_swap": [
+      "code/swap.md"
+    ],
+    "code_tooltip_till": [
+      "code/till.md"
+    ],
+    "code_tooltip_unlock": [
+      "code/unlock.md"
+    ],
+    "code_tooltip_use_item": [
+      "code/use_item.md"
+    ],
+    "code_tooltip_wait_for": [
+      "code/wait_for.md"
+    ],
+    "code_tooltip_while": [
+      "code/while.md"
+    ],
+    "costs": [
+      "unlocks/costs.md"
+    ],
+    "debug": [
+      "unlocks/debug.md"
+    ],
+    "debug_2": [
+      "unlocks/debug_2.md"
+    ],
+    "debug_place": [
+      "unlocks/debug_place.md"
+    ],
+    "dictionaries": [
+      "unlocks/dictionaries.md"
+    ],
+    "dinosaurs": [
+      "unlocks/dinosaurs.md"
+    ],
+    "drill": [
+      "reference/templates.md"
+    ],
+    "dynamite": [
+      "unlocks/dynamite.md"
+    ],
+    "expand": [
+      "unlocks/expand.md"
+    ],
+    "expand_2": [
+      "reference/templates.md"
+    ],
+    "explosive_drill": [
+      "unlocks/explosive_drill.md"
+    ],
+    "fertilizer": [
+      "unlocks/fertilizer.md"
+    ],
+    "functions": [
+      "unlocks/functions.md"
+    ],
+    "grass": [
+      "unlocks/grass.md"
+    ],
+    "hat_descr_bamboo_hat": [
+      "hats/bamboo_hat.md"
+    ],
+    "hat_descr_brown_hat": [
+      "hats/brown_hat.md"
+    ],
+    "hat_descr_bucket": [
+      "hats/bucket.md"
+    ],
+    "hat_descr_cactus_hat": [
+      "hats/cactus_hat.md"
+    ],
+    "hat_descr_carrot_hat": [
+      "hats/carrot_hat.md"
+    ],
+    "hat_descr_coal_hat": [
+      "hats/coal_hat.md"
+    ],
+    "hat_descr_dinosaur_hat": [
+      "hats/dinosaur_hat.md"
+    ],
+    "hat_descr_dynamite_hat": [
+      "hats/dynamite_hat.md"
+    ],
+    "hat_descr_explosive_drill": [
+      "hats/explosive_drill.md"
+    ],
+    "hat_descr_gold_hat": [
+      "hats/gold_hat.md"
+    ],
+    "hat_descr_gold_trophy_hat": [
+      "hats/gold_trophy_hat.md"
+    ],
+    "hat_descr_golden_cactus_hat": [
+      "hats/golden_cactus_hat.md"
+    ],
+    "hat_descr_golden_gold_hat": [
+      "hats/golden_gold_hat.md"
+    ],
+    "hat_descr_golden_pumpkin_hat": [
+      "hats/golden_pumpkin_hat.md"
+    ],
+    "hat_descr_golden_sunflower_hat": [
+      "hats/golden_sunflower_hat.md"
+    ],
+    "hat_descr_gray_hat": [
+      "hats/gray_hat.md"
+    ],
+    "hat_descr_green_hat": [
+      "hats/green_hat.md"
+    ],
+    "hat_descr_mining_hat": [
+      "hats/mining_hat.md"
+    ],
+    "hat_descr_mushroom_hat": [
+      "hats/mushroom_hat.md"
+    ],
+    "hat_descr_pumpkin_hat": [
+      "hats/pumpkin_hat.md"
+    ],
+    "hat_descr_purple_hat": [
+      "hats/purple_hat.md"
+    ],
+    "hat_descr_quartz_hat": [
+      "hats/quartz_hat.md"
+    ],
+    "hat_descr_rice_hat": [
+      "hats/rice_hat.md"
+    ],
+    "hat_descr_silver_trophy_hat": [
+      "hats/silver_trophy_hat.md"
+    ],
+    "hat_descr_straw_hat": [
+      "hats/straw_hat.md"
+    ],
+    "hat_descr_sunflower_hat": [
+      "hats/sunflower_hat.md"
+    ],
+    "hat_descr_the_farmers_remains": [
+      "hats/the_farmers_remains.md"
+    ],
+    "hat_descr_top_hat": [
+      "hats/top_hat.md"
+    ],
+    "hat_descr_traffic_cone": [
+      "hats/traffic_cone.md"
+    ],
+    "hat_descr_traffic_cone_stack": [
+      "hats/traffic_cone_stack.md"
+    ],
+    "hat_descr_tree_hat": [
+      "hats/tree_hat.md"
+    ],
+    "hat_descr_wizard_hat": [
+      "hats/wizard_hat.md"
+    ],
+    "hat_descr_wood_trophy_hat": [
+      "hats/wood_trophy_hat.md"
+    ],
+    "hats": [
+      "unlocks/hats.md"
+    ],
+    "import": [
+      "unlocks/import.md"
+    ],
+    "iron": [
+      "unlocks/iron.md"
+    ],
+    "item_descr_bamboo": [
+      "items/bamboo.md"
+    ],
+    "item_descr_block": [
+      "items/block.md"
+    ],
+    "item_descr_bone": [
+      "items/bone.md"
+    ],
+    "item_descr_cactus": [
+      "items/cactus.md"
+    ],
+    "item_descr_cactus_seed": [
+      "items/cactus_seed.md"
+    ],
+    "item_descr_carrot": [
+      "items/carrot.md"
+    ],
+    "item_descr_coal": [
+      "items/coal.md"
+    ],
+    "item_descr_dynamite": [
+      "items/dynamite.md"
+    ],
+    "item_descr_fertilizer": [
+      "items/fertilizer.md"
+    ],
+    "item_descr_gold": [
+      "items/gold.md"
+    ],
+    "item_descr_hay": [
+      "items/hay.md"
+    ],
+    "item_descr_iron": [
+      "items/iron.md"
+    ],
+    "item_descr_mushroom": [
+      "items/mushroom.md"
+    ],
+    "item_descr_piggy": [
+      "items/piggy.md"
+    ],
+    "item_descr_power": [
+      "items/power.md"
+    ],
+    "item_descr_pumpkin": [
+      "items/pumpkin.md"
+    ],
+    "item_descr_quartz": [
+      "items/quartz.md"
+    ],
+    "item_descr_rice": [
+      "items/rice.md"
+    ],
+    "item_descr_water": [
+      "items/water.md"
+    ],
+    "item_descr_weird_substance": [
+      "items/weird_substance.md"
+    ],
+    "item_descr_wood": [
+      "items/wood.md"
+    ],
+    "item_tooltip_template_amount": [
+      "reference/templates.md"
+    ],
+    "item_tooltip_template_rate": [
+      "reference/templates.md"
+    ],
+    "jump": [
+      "unlocks/jump.md"
+    ],
+    "lb_descr_bamboo": [
+      "leaderboards/bamboo.md"
+    ],
+    "lb_descr_bamboo_single": [
+      "leaderboards/bamboo_single.md"
+    ],
+    "lb_descr_cactus": [
+      "leaderboards/cactus.md"
+    ],
+    "lb_descr_cactus_single": [
+      "leaderboards/cactus_single.md"
+    ],
+    "lb_descr_carrots": [
+      "leaderboards/carrots.md"
+    ],
+    "lb_descr_carrots_single": [
+      "leaderboards/carrots_single.md"
+    ],
+    "lb_descr_dinosaur": [
+      "leaderboards/dinosaur.md"
+    ],
+    "lb_descr_dynamite": [
+      "leaderboards/dynamite.md"
+    ],
+    "lb_descr_dynamite_single": [
+      "leaderboards/dynamite_single.md"
+    ],
+    "lb_descr_fastest_reset": [
+      "leaderboards/fastest_reset.md"
+    ],
+    "lb_descr_fastest_underground_reset": [
+      "leaderboards/fastest_underground_reset.md"
+    ],
+    "lb_descr_hay": [
+      "leaderboards/hay.md"
+    ],
+    "lb_descr_hay_single": [
+      "leaderboards/hay_single.md"
+    ],
+    "lb_descr_maze": [
+      "leaderboards/maze.md"
+    ],
+    "lb_descr_maze_single": [
+      "leaderboards/maze_single.md"
+    ],
+    "lb_descr_mushrooms": [
+      "leaderboards/mushrooms.md"
+    ],
+    "lb_descr_mushrooms_single": [
+      "leaderboards/mushrooms_single.md"
+    ],
+    "lb_descr_ores": [
+      "leaderboards/ores.md"
+    ],
+    "lb_descr_ores_single": [
+      "leaderboards/ores_single.md"
+    ],
+    "lb_descr_pumpkins": [
+      "leaderboards/pumpkins.md"
+    ],
+    "lb_descr_pumpkins_single": [
+      "leaderboards/pumpkins_single.md"
+    ],
+    "lb_descr_pyramids": [
+      "leaderboards/pyramids.md"
+    ],
+    "lb_descr_pyramids_single": [
+      "leaderboards/pyramids_single.md"
+    ],
+    "lb_descr_rice": [
+      "leaderboards/rice.md"
+    ],
+    "lb_descr_rice_single": [
+      "leaderboards/rice_single.md"
+    ],
+    "lb_descr_sunflowers": [
+      "leaderboards/sunflowers.md"
+    ],
+    "lb_descr_sunflowers_single": [
+      "leaderboards/sunflowers_single.md"
+    ],
+    "lb_descr_treasure_map": [
+      "leaderboards/treasure_map.md"
+    ],
+    "lb_descr_wood": [
+      "leaderboards/wood.md"
+    ],
+    "lb_descr_wood_single": [
+      "leaderboards/wood_single.md"
+    ],
+    "leaderboard": [
+      "unlocks/leaderboard.md"
+    ],
+    "lists": [
+      "unlocks/lists.md"
+    ],
+    "loops": [
+      "unlocks/loops.md"
+    ],
+    "mazes": [
+      "unlocks/mazes.md"
+    ],
+    "megafarm": [
+      "unlocks/megafarm.md"
+    ],
+    "mining": [
+      "unlocks/mining.md"
+    ],
+    "multi_unlock_descr_bamboo": [
+      "unlocks/bamboo.md"
+    ],
+    "multi_unlock_descr_cactus": [
+      "unlocks/cactus.md"
+    ],
+    "multi_unlock_descr_carrots": [
+      "unlocks/carrots.md"
+    ],
+    "multi_unlock_descr_coal": [
+      "unlocks/coal.md"
+    ],
+    "multi_unlock_descr_dinosaur": [
+      "unlocks/dinosaurs.md"
+    ],
+    "multi_unlock_descr_drill": [
+      "unlocks/mining.md"
+    ],
+    "multi_unlock_descr_dynamite": [
+      "unlocks/dynamite.md"
+    ],
+    "multi_unlock_descr_expand": [
+      "unlocks/expand.md"
+    ],
+    "multi_unlock_descr_fertilizer": [
+      "unlocks/fertilizer.md"
+    ],
+    "multi_unlock_descr_iron": [
+      "unlocks/iron.md"
+    ],
+    "multi_unlock_descr_mazes": [
+      "unlocks/mazes.md"
+    ],
+    "multi_unlock_descr_megafarm": [
+      "unlocks/megafarm.md"
+    ],
+    "multi_unlock_descr_mushrooms": [
+      "unlocks/mushrooms.md"
+    ],
+    "multi_unlock_descr_ore_boost": [
+      "unlocks/ore_boost.md"
+    ],
+    "multi_unlock_descr_petrified_pumpkins": [
+      "unlocks/petrified_pumpkins.md"
+    ],
+    "multi_unlock_descr_polyculture": [
+      "unlocks/polyculture.md"
+    ],
+    "multi_unlock_descr_pumpkins": [
+      "unlocks/pumpkins.md"
+    ],
+    "multi_unlock_descr_pyramid": [
+      "unlocks/pyramid.md"
+    ],
+    "multi_unlock_descr_quartz": [
+      "unlocks/quartz.md"
+    ],
+    "multi_unlock_descr_rice": [
+      "unlocks/rice.md"
+    ],
+    "multi_unlock_descr_sunflowers": [
+      "reference/templates.md"
+    ],
+    "multi_unlock_descr_treasure_map": [
+      "unlocks/treasure_map.md"
+    ],
+    "multi_unlock_descr_trees": [
+      "unlocks/trees.md"
+    ],
+    "multi_unlock_descr_watering": [
+      "unlocks/watering.md"
+    ],
+    "mushrooms": [
+      "unlocks/mushrooms.md"
+    ],
+    "object_descr_apple": [
+      "objects/apple.md"
+    ],
+    "object_descr_bamboo": [
+      "objects/bamboo.md"
+    ],
+    "object_descr_basalt": [
+      "grounds/basalt.md"
+    ],
+    "object_descr_bedrock": [
+      "grounds/bedrock.md"
+    ],
+    "object_descr_block_blue": [
+      "grounds/block_blue.md"
+    ],
+    "object_descr_block_green": [
+      "grounds/block_green.md"
+    ],
+    "object_descr_block_red": [
+      "grounds/block_red.md"
+    ],
+    "object_descr_bush": [
+      "objects/bush.md"
+    ],
+    "object_descr_cactus": [
+      "objects/cactus.md"
+    ],
+    "object_descr_carrot": [
+      "objects/carrot.md"
+    ],
+    "object_descr_clay": [
+      "grounds/clay.md",
+      "grounds/dry_rice_terrace.md",
+      "grounds/rice_terrace.md"
+    ],
+    "object_descr_coal": [
+      "grounds/coal.md"
+    ],
+    "object_descr_dead_pumpkin": [
+      "objects/dead_pumpkin.md"
+    ],
+    "object_descr_dinosaur": [
+      "objects/dinosaur.md"
+    ],
+    "object_descr_dirt": [
+      "grounds/dirt.md"
+    ],
+    "object_descr_dynamite": [
+      "objects/dynamite.md"
+    ],
+    "object_descr_dynamite_ground": [
+      "grounds/dynamite.md"
+    ],
+    "object_descr_grass": [
+      "objects/grass.md"
+    ],
+    "object_descr_grassland": [
+      "grounds/grassland.md"
+    ],
+    "object_descr_hedge": [
+      "objects/hedge.md"
+    ],
+    "object_descr_iron": [
+      "grounds/iron.md"
+    ],
+    "object_descr_limestone": [
+      "grounds/limestone.md"
+    ],
+    "object_descr_loam": [
+      "grounds/loam.md"
+    ],
+    "object_descr_mushroom": [
+      "grounds/mushroom.md"
+    ],
+    "object_descr_perlite": [
+      "grounds/perlite.md"
+    ],
+    "object_descr_petrified_pumpkin": [
+      "grounds/petrified_pumpkin.md"
+    ],
+    "object_descr_pumpkin": [
+      "objects/pumpkin.md"
+    ],
+    "object_descr_quartz": [
+      "grounds/quartz.md"
+    ],
+    "object_descr_rice": [
+      "objects/rice.md"
+    ],
+    "object_descr_rock": [
+      "grounds/rock.md"
+    ],
+    "object_descr_sand": [
+      "grounds/sand.md"
+    ],
+    "object_descr_soil": [
+      "grounds/soil.md"
+    ],
+    "object_descr_soot": [
+      "grounds/soot.md"
+    ],
+    "object_descr_sunflower": [
+      "objects/sunflower.md"
+    ],
+    "object_descr_treasure": [
+      "objects/treasure.md"
+    ],
+    "object_descr_treasure_goal_ground": [
+      "grounds/treasure_goal.md"
+    ],
+    "object_descr_treasure_map_ground": [
+      "grounds/treasure_map.md"
+    ],
+    "object_descr_treasure_path_ground": [
+      "grounds/treasure_path.md"
+    ],
+    "object_descr_tree": [
+      "objects/tree.md"
+    ],
+    "object_descr_underground_treasure": [
+      "objects/underground_treasure.md"
+    ],
+    "object_tooltip_template_cost": [
+      "reference/templates.md"
+    ],
+    "operators": [
+      "unlocks/operators.md"
+    ],
+    "ore_boost": [
+      "unlocks/ore_boost.md"
+    ],
+    "petrified_pumpkins": [
+      "unlocks/petrified_pumpkins.md"
+    ],
+    "plant": [
+      "unlocks/plant.md"
+    ],
+    "plant_tooltip_template": [
+      "reference/templates.md"
+    ],
+    "polyculture": [
+      "unlocks/polyculture.md"
+    ],
+    "prospecting": [
+      "unlocks/prospecting.md"
+    ],
+    "pumpkins": [
+      "unlocks/pumpkins.md"
+    ],
+    "pyramid": [
+      "unlocks/pyramid.md"
+    ],
+    "quartz": [
+      "unlocks/quartz.md"
+    ],
+    "rice": [
+      "unlocks/rice.md"
+    ],
+    "runtime_entity_tooltip": [
+      "reference/templates.md"
+    ],
+    "runtime_ground_hardness_tooltip": [
+      "reference/templates.md"
+    ],
+    "runtime_ground_stability_tooltip": [
+      "reference/templates.md"
+    ],
+    "runtime_ground_tooltip": [
+      "reference/templates.md"
+    ],
+    "runtime_ground_water_tooltip": [
+      "reference/templates.md"
+    ],
+    "runtime_growable_tooltip": [
+      "reference/templates.md"
+    ],
+    "runtime_mushroom_tooltip": [
+      "reference/templates.md"
+    ],
+    "senses": [
+      "unlocks/senses.md"
+    ],
+    "simulation": [
+      "unlocks/simulation.md"
+    ],
+    "special_soils": [
+      "unlocks/special_soils.md"
+    ],
+    "speed": [
+      "unlocks/speed.md"
+    ],
+    "sunflowers": [
+      "unlocks/sunflowers.md"
+    ],
+    "the_farmers_remains": [
+      "unlocks/the_farmers_remains.md"
+    ],
+    "timing": [
+      "unlocks/timing.md"
+    ],
+    "top_hat": [
+      "unlocks/top_hat.md"
+    ],
+    "treasure_map": [
+      "unlocks/treasure_map.md"
+    ],
+    "trees": [
+      "unlocks/trees.md"
+    ],
+    "underground_leaderboard": [
+      "unlocks/underground_leaderboard.md"
+    ],
+    "underground_senses": [
+      "unlocks/underground_senses.md"
+    ],
+    "unlock_descr_auto_unlock": [
+      "unlocks/auto_unlock.md"
+    ],
+    "unlock_descr_bamboo": [
+      "unlocks/bamboo.md"
+    ],
+    "unlock_descr_cactus": [
+      "unlocks/cactus.md"
+    ],
+    "unlock_descr_carrots": [
+      "unlocks/carrots.md"
+    ],
+    "unlock_descr_coal": [
+      "unlocks/coal.md"
+    ],
+    "unlock_descr_costs": [
+      "unlocks/costs.md"
+    ],
+    "unlock_descr_debug": [
+      "unlocks/debug.md"
+    ],
+    "unlock_descr_debug2": [
+      "unlocks/debug_2.md"
+    ],
+    "unlock_descr_debug_place": [
+      "unlocks/debug_place.md"
+    ],
+    "unlock_descr_dicts": [
+      "unlocks/dictionaries.md"
+    ],
+    "unlock_descr_dinosaurs": [
+      "unlocks/dinosaurs.md"
+    ],
+    "unlock_descr_drill": [
+      "unlocks/drill.md"
+    ],
+    "unlock_descr_dynamite": [
+      "unlocks/dynamite.md"
+    ],
+    "unlock_descr_expand": [
+      "unlocks/expand.md"
+    ],
+    "unlock_descr_explosive_drill": [
+      "unlocks/explosive_drill.md"
+    ],
+    "unlock_descr_fertilizer": [
+      "unlocks/fertilizer.md"
+    ],
+    "unlock_descr_functions": [
+      "unlocks/functions.md"
+    ],
+    "unlock_descr_grass": [
+      "unlocks/grass.md"
+    ],
+    "unlock_descr_hats": [
+      "unlocks/hats.md"
+    ],
+    "unlock_descr_import": [
+      "unlocks/import.md"
+    ],
+    "unlock_descr_iron": [
+      "unlocks/iron.md"
+    ],
+    "unlock_descr_jump": [
+      "unlocks/jump.md"
+    ],
+    "unlock_descr_leaderboard": [
+      "unlocks/leaderboard.md"
+    ],
+    "unlock_descr_lists": [
+      "unlocks/lists.md"
+    ],
+    "unlock_descr_loops": [
+      "unlocks/loops.md"
+    ],
+    "unlock_descr_mazes": [
+      "unlocks/mazes.md"
+    ],
+    "unlock_descr_megafarm": [
+      "unlocks/megafarm.md"
+    ],
+    "unlock_descr_mining": [
+      "unlocks/mining.md"
+    ],
+    "unlock_descr_mushrooms": [
+      "unlocks/mushrooms.md"
+    ],
+    "unlock_descr_operators": [
+      "unlocks/operators.md"
+    ],
+    "unlock_descr_ore_boost": [
+      "unlocks/ore_boost.md"
+    ],
+    "unlock_descr_petrified_pumpkins": [
+      "unlocks/petrified_pumpkins.md"
+    ],
+    "unlock_descr_plant": [
+      "unlocks/plant.md"
+    ],
+    "unlock_descr_polyculture": [
+      "unlocks/polyculture.md"
+    ],
+    "unlock_descr_prospecting": [
+      "unlocks/prospecting.md"
+    ],
+    "unlock_descr_pumpkin": [
+      "unlocks/pumpkins.md"
+    ],
+    "unlock_descr_pyramid": [
+      "unlocks/pyramid.md"
+    ],
+    "unlock_descr_quartz": [
+      "unlocks/quartz.md"
+    ],
+    "unlock_descr_rice": [
+      "unlocks/rice.md"
+    ],
+    "unlock_descr_senses": [
+      "unlocks/senses.md"
+    ],
+    "unlock_descr_simulation": [
+      "unlocks/simulation.md"
+    ],
+    "unlock_descr_special_soils": [
+      "unlocks/special_soils.md"
+    ],
+    "unlock_descr_speed": [
+      "unlocks/speed.md"
+    ],
+    "unlock_descr_sunflowers": [
+      "unlocks/sunflowers.md"
+    ],
+    "unlock_descr_the_farmers_remains": [
+      "unlocks/the_farmers_remains.md"
+    ],
+    "unlock_descr_timing": [
+      "unlocks/timing.md"
+    ],
+    "unlock_descr_top_hat": [
+      "unlocks/top_hat.md"
+    ],
+    "unlock_descr_treasure_map": [
+      "unlocks/treasure_map.md"
+    ],
+    "unlock_descr_trees": [
+      "unlocks/trees.md"
+    ],
+    "unlock_descr_underground_leaderboard": [
+      "unlocks/underground_leaderboard.md"
+    ],
+    "unlock_descr_underground_senses": [
+      "unlocks/underground_senses.md"
+    ],
+    "unlock_descr_utilities": [
+      "unlocks/utilities.md"
+    ],
+    "unlock_descr_variables": [
+      "unlocks/variables.md"
+    ],
+    "unlock_descr_watering": [
+      "unlocks/watering.md"
+    ],
+    "unlock_tooltip_template_additional_requirement": [
+      "reference/templates.md"
+    ],
+    "unlock_tooltip_template_cost": [
+      "reference/templates.md"
+    ],
+    "utilities": [
+      "unlocks/utilities.md"
+    ],
+    "variables": [
+      "unlocks/variables.md"
+    ],
+    "watering": [
+      "unlocks/watering.md"
+    ]
+  },
+  "sources": {
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/backup.md": "29092a4c293e534edb71cd4226c1182f29782c656aa99f3d7a944ba0df14cd81",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/credits.md": "b1b23945da30cdd6f786919c8ee017bf81df3eb927d7fdfdbd933f439c5b68de",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/external_editor.md": "9e2e331913214aa602216d5a63983a40400e2e7b1106834ed331ff84a1ac0485",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/first_program.md": "e2871bfaa4af90bec4fbe4e40446ec8c473b405f6ebf84887c77ba30c6b5dac7",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/getting_started.md": "7e56eecef0ad673c8f86ee0e4c59c3ebf73dd234a0a20b9840d50db551828466",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/home.md": "4beaf04e9246c028a06ae70f7ef5c53e61e23b44d65c39d5a0f3d83a6434acfa",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/output.md": "b82e56e5399b1bad5e9490bf620d4312a8343d0a658ccf52605518cc98b08045",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/break.md": "b8e2a0c54db1108e31a83981391f1ca31f0cc77ffbe392d46716038183985346",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/comments.md": "96b91ddbdf271453c17fba1668cac4f723e49c25090b824f73bfc0dcf9845fd9",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/continue.md": "bc0e2395d6f4d3f81796dd1296e3963bb2b8d3cabb7ad7639acf25680e798132",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/debug.md": "4343b73611676b38c8dc2214ffd9cf3507a793d749581f19b607ebc808469d53",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/dicts.md": "423133f0afb94e6a0d34a4dee2c8e30b5d8fdf9df2a3231af2c177fae0a50c25",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/for.md": "21e95d16303a2cc74897559ba8cbc648d24f37af5870a9545c17bef878ac56d8",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/functions.md": "0aabca69219cff1d33db673d4471730ff6747f37e7cc1d2ab745ac1b453f0346",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/if.md": "b1b60c2246ba8d3885c17a3f7931313b2d9f0669dc5b13ec3d492ea9a0a94c82",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/import.md": "ba33cdb5c3a706b4645fffda174c378910ca44633629b429163cec56467d5c7f",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/lists.md": "f4170492907c15587e0e89ace7e68c57ea24c9ac1c7fb31ba3e010382af5de38",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/operators.md": "3e3330b8f527660adb62b9681ebf3787a963888eab3399208f63061853bd2df3",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/scopes.md": "813d3366fa7da8fa5b85e69271c5be4e7c9c74018627cd79e27cc054e0d9ba3b",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/sets.md": "6d2cb2d6723c81ce842d66e7e08594e4c3e946aa09578843af639bfcf479be26",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/tuples.md": "7dc39b9605d539e0f6e251ce0a0b0353f51f5352a17715f8e21a586d96a88efa",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/variables.md": "97945876aa21ca5ff3c76520a989f63675b584a4c522a0d121f4c32fedaf4396",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/scripting/while.md": "a95eb5e4d21e40be421642886051c969486dccec92dcfe5c8d24aaacc5822939",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/stats.md": "5fcd3f984883a205e254527270fa53c7e432d96c6e67b1c9920a46e6d12ab86e",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/auto_unlock.md": "f6733eea5a156e73b54d52239703be09fa77c0ca5a7f23c18d25753e22c0c6df",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/bamboo.md": "06482335fce5402564dd3b04fe0c45abfd2ee6c3e89e70cf7e87572bfddf222a",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/cactus.md": "9db918d913c946979821a823a2d728a6fdbbf6095c6554a6e1fc5bb45069fb87",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/carrots.md": "ff20c2f11a5c5c51d127491c6f2a9e6c8793fc84d17dd028618f8dc74cfc8c62",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/coal.md": "8128310ed8e89fb7841f7dd8259314c9edca02eda1990d2a3000c90a37c5662a",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/costs.md": "584f74cfbe3b0169385e0b5653bbebfef48a106dc60a43422babd5c603e2bfce",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/debug2.md": "5bf731bfd1e0956034b3925d709d3aa2842f9ca6c168d916d9d5539cf0876da0",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/debug_place.md": "73b871c6c17e0549f60fb700ec02c9fc27489c26040e1e465cb0a8b8df7f1c54",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/dinosaurs.md": "a7b543a194fe499092e73e5462c51db1eccaa113d416af079bacae0cfe37584d",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/dynamite.md": "9c2652577cc0ff39120d5994d20c0c220d22e539bb6dd67f6af2c77d3d98c3f4",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/expand_1.md": "34da9006efd29a7f21aa13da552cfca9262e2b0bfeca7e6a603a48042dc5ef9f",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/expand_2.md": "f4026a65a8e4c189bcf9a8dc7855c33edb9798e7eafbc06045bc09b007045a9f",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/explosive_drill.md": "8bc7f3f7a35f27b59c3835aa64a432ad81c58510ec5c56e67812e2407b77553f",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/fertilizer.md": "86c8750f81cc225148f5a38c70e40c1152a7b0f30a09eb994f1024e9d61c9526",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/hats.md": "3055e0574e1a3b36dd248794161a0c62677b9fac3cdee001d9b16faf61766747",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/iron.md": "a95a0b749cf97b359c9083afb984947e3616ac6c9b8368d81455f24dccda1b23",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/jump.md": "4a8d95ff617c6b41093e422b776bd2ec28d15c56adb87178717ed68d0985e1b2",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/leaderboard.md": "65c35f7816efa24aaea6fa310b51945e3e4955f6a34a46e5538846076434287c",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/mazes.md": "aea1017472d204d1e22098b31055791922cce00720791daee022182ba7c42e96",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/megafarm.md": "6ffc2590c24ae31e569088f61bbcb67f467160f1ea3eb7935ce4936c5e38f701",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/mining.md": "411b17433d75825d6e100cfa6a28e7aec0c9e8fd24eb983cc25cf6b568b38275",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/mushroom.md": "e6152bf514cfd6d47df1f8cf89cdf7e1e9d343506d0b93d1f2ae5c8a1a50f97c",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/petrified_pumpkins.md": "13f25679e302d5c513f9525047f71f90e068d5fe08e531946703fac6fdeb4e9c",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/plant.md": "b8ca5dcecfd29c69f28a317829331841e57510613048c2d923c699e6435a2e59",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/polyculture.md": "3600a270829a124f5531d628afcf69a03204c51d8bcf258b96565c322c1d2236",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/prospecting.md": "e0986d4d89865bfc3965f0dd1dd8b804d209dbbb0f8cb1abdd2007e777054f32",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/pumpkins.md": "61690d0f5fe7eae946c714d5305d1d43d82ac2d0b7a50825e6cf2d0fef6d5287",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/pyramid.md": "eff416c9d6d7cdda87c53820651f7f2c3124076d1cdc63c56444c9d0f162e869",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/quartz.md": "098cbc702cb18f9f7bb59c6e18a66fa82d9f094386fa54668c8c2192b6f8774a",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/rice.md": "66b0fce6a6f1a4cf678ac02f1cc19a17db02e296c462b2d06fb06a05681b4abe",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/senses.md": "537c8f524af092b48d168b1688722c0553322ba855ea56f9353693e11555e5e1",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/simulation.md": "1cd3d1f4ce1fe9c069cb91b6b571cc5509b040aa373a81f3ac8ade6084b2be07",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/special_soils.md": "ffdc7a568676fecd9d301edd8467186d79576ebedac768a3a7d79712e7fb2ba6",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/speed.md": "676c92f659a6055146f5a008cc7547886ee72897f6891d012fe9ee60ab3ccfa0",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/sunflowers.md": "26a7fa5ed48d93843a4883b4932b11654ced2c1de7cda418ed92602c88d01298",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/timing.md": "345297ec17caa605ea738f40a79ba0fb10fd69e5a370be9a94b385f596df6e72",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/treasure_map.md": "60a982c7ad8cfd1331160c1763fe5d4a27a25cce4af3fd748b11418e4b14139e",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/trees.md": "a96e78fc58457720cb6597f6578cd84f6a9a426beaad46d8ae8c81c918dc85bb",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/underground_leaderboard.md": "3d21fe31a9bc673226ff7f90c55da8c66237a212fd631fef4d5e66fd545a03c3",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/underground_senses.md": "e897fc231f5f6960623fbf36ffd05c09f869bb2ae70cb2a8d624877063a20700",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/unlocks/watering.md": "57b02cfda9984af1d433c7af5fd4ae31aeba2e696baca572808868b1e386ed82",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/Strings/code_tooltips.txt": "d656e2cb924f42d01af30e069ff37e646cfa5fdbe94d66f9388ab1cb3d97c7b4",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/Strings/unlock_tooltips.txt": "91692e8d5c75a53c025e455958a150505a8209ad3a3b455ce2e2c1ebf8d5c1df",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/Strings/object_tooltips.txt": "261eaecb545d68047b007160cdb11c237563737e12513ae0652a3d281d010ce7",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/Strings/item_tooltips.txt": "7700b485c9409a3fa803e4ec353f3838090cfd1fc616da522689a80bd52f7b72",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/Strings/hat_tooltips.txt": "e1ed820b52c755a7c0c60b5d40650b338817f6baf9292d6009f431a8f9ff0d1b",
+    "TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/Strings/leaderboard_tooltips.txt": "f6d01975e138a41323247137f817d1a3d397c281be2f0c7911c9b5e63b463e60",
+    "TheFarmerWasReplaced_Data/resources.assets": "78fb11473d3be0fdb2f068478de297df36ec469d305ee0d1724c72b58242a42b",
+    "TheFarmerWasReplaced_Data/resources.assets.resS": "2ab33b141004e88399b3d5e3f483305f626406fc870e57b66276fa9d55e5de5d",
+    "TheFarmerWasReplaced_Data/globalgamemanagers.assets": "8dc8b28cb10ad403ce90448473ab565d822e0dfd11dcd49049e16321c5db2f88",
+    "TheFarmerWasReplaced_Data/Managed/Core.dll": "8eb39f657f2c2dc3eb7438b709bb066852fc83cffb7c64d64e86cf59de119e74",
+    "TheFarmerWasReplaced_Data/Managed/Utils.dll": "d7ada71927581528a1e854f764540d16193c8cd859895deff56c7266bb9136a1"
+  },
+  "pages": [
+    "README.md",
+    "code/East.md",
+    "code/Entities.md",
+    "code/False.md",
+    "code/Grounds.md",
+    "code/Hats.md",
+    "code/Items.md",
+    "code/Leaderboards.md",
+    "code/None.md",
+    "code/North.md",
+    "code/South.md",
+    "code/True.md",
+    "code/Unlocks.md",
+    "code/West.md",
+    "code/abs.md",
+    "code/add.md",
+    "code/and.md",
+    "code/append.md",
+    "code/break.md",
+    "code/can_harvest.md",
+    "code/can_move.md",
+    "code/can_push.md",
+    "code/change_hat.md",
+    "code/clear.md",
+    "code/continue.md",
+    "code/def.md",
+    "code/dict.md",
+    "code/dig.md",
+    "code/do_a_flip.md",
+    "code/elif.md",
+    "code/else.md",
+    "code/for.md",
+    "code/get_companion.md",
+    "code/get_cost.md",
+    "code/get_entity_type.md",
+    "code/get_ground_type.md",
+    "code/get_hardness.md",
+    "code/get_hover.md",
+    "code/get_pos_x.md",
+    "code/get_pos_y.md",
+    "code/get_pos_z.md",
+    "code/get_stability.md",
+    "code/get_tick_count.md",
+    "code/get_time.md",
+    "code/get_water.md",
+    "code/get_world_size.md",
+    "code/harvest.md",
+    "code/has_finished.md",
+    "code/hover.md",
+    "code/if.md",
+    "code/index.md",
+    "code/insert.md",
+    "code/jump.md",
+    "code/leaderboard_run.md",
+    "code/len.md",
+    "code/list.md",
+    "code/max.md",
+    "code/max_drones.md",
+    "code/measure.md",
+    "code/min.md",
+    "code/move.md",
+    "code/not.md",
+    "code/num_drones.md",
+    "code/num_items.md",
+    "code/num_unlocked.md",
+    "code/or.md",
+    "code/pass.md",
+    "code/pet_the_piggy.md",
+    "code/place.md",
+    "code/plant.md",
+    "code/pop.md",
+    "code/print.md",
+    "code/prospect_iron.md",
+    "code/prospect_quartz.md",
+    "code/push.md",
+    "code/quick_print.md",
+    "code/random.md",
+    "code/range.md",
+    "code/remove.md",
+    "code/reset.md",
+    "code/return.md",
+    "code/set.md",
+    "code/set_execution_speed.md",
+    "code/set_world_size.md",
+    "code/simulate.md",
+    "code/spawn_drone.md",
+    "code/str.md",
+    "code/swap.md",
+    "code/till.md",
+    "code/unlock.md",
+    "code/use_item.md",
+    "code/wait_for.md",
+    "code/while.md",
+    "grounds/basalt.md",
+    "grounds/bedrock.md",
+    "grounds/block_blue.md",
+    "grounds/block_green.md",
+    "grounds/block_red.md",
+    "grounds/clay.md",
+    "grounds/coal.md",
+    "grounds/dirt.md",
+    "grounds/dry_rice_terrace.md",
+    "grounds/dynamite.md",
+    "grounds/grassland.md",
+    "grounds/index.md",
+    "grounds/iron.md",
+    "grounds/limestone.md",
+    "grounds/loam.md",
+    "grounds/mushroom.md",
+    "grounds/perlite.md",
+    "grounds/petrified_pumpkin.md",
+    "grounds/quartz.md",
+    "grounds/rice_terrace.md",
+    "grounds/rock.md",
+    "grounds/sand.md",
+    "grounds/soil.md",
+    "grounds/soot.md",
+    "grounds/treasure_goal.md",
+    "grounds/treasure_map.md",
+    "grounds/treasure_path.md",
+    "guides/backup.md",
+    "guides/credits.md",
+    "guides/external_editor.md",
+    "guides/first_program.md",
+    "guides/getting_started.md",
+    "guides/home.md",
+    "guides/output.md",
+    "guides/scripting/break.md",
+    "guides/scripting/comments.md",
+    "guides/scripting/continue.md",
+    "guides/scripting/debug.md",
+    "guides/scripting/dicts.md",
+    "guides/scripting/for.md",
+    "guides/scripting/functions.md",
+    "guides/scripting/if.md",
+    "guides/scripting/import.md",
+    "guides/scripting/lists.md",
+    "guides/scripting/operators.md",
+    "guides/scripting/scopes.md",
+    "guides/scripting/sets.md",
+    "guides/scripting/tuples.md",
+    "guides/scripting/variables.md",
+    "guides/scripting/while.md",
+    "guides/stats.md",
+    "guides/unlocks/auto_unlock.md",
+    "guides/unlocks/bamboo.md",
+    "guides/unlocks/cactus.md",
+    "guides/unlocks/carrots.md",
+    "guides/unlocks/coal.md",
+    "guides/unlocks/costs.md",
+    "guides/unlocks/debug2.md",
+    "guides/unlocks/debug_place.md",
+    "guides/unlocks/dinosaurs.md",
+    "guides/unlocks/dynamite.md",
+    "guides/unlocks/expand_1.md",
+    "guides/unlocks/expand_2.md",
+    "guides/unlocks/explosive_drill.md",
+    "guides/unlocks/fertilizer.md",
+    "guides/unlocks/hats.md",
+    "guides/unlocks/iron.md",
+    "guides/unlocks/jump.md",
+    "guides/unlocks/leaderboard.md",
+    "guides/unlocks/mazes.md",
+    "guides/unlocks/megafarm.md",
+    "guides/unlocks/mining.md",
+    "guides/unlocks/mushroom.md",
+    "guides/unlocks/petrified_pumpkins.md",
+    "guides/unlocks/plant.md",
+    "guides/unlocks/polyculture.md",
+    "guides/unlocks/prospecting.md",
+    "guides/unlocks/pumpkins.md",
+    "guides/unlocks/pyramid.md",
+    "guides/unlocks/quartz.md",
+    "guides/unlocks/rice.md",
+    "guides/unlocks/senses.md",
+    "guides/unlocks/simulation.md",
+    "guides/unlocks/special_soils.md",
+    "guides/unlocks/speed.md",
+    "guides/unlocks/sunflowers.md",
+    "guides/unlocks/timing.md",
+    "guides/unlocks/treasure_map.md",
+    "guides/unlocks/trees.md",
+    "guides/unlocks/underground_leaderboard.md",
+    "guides/unlocks/underground_senses.md",
+    "guides/unlocks/watering.md",
+    "hats/bamboo_hat.md",
+    "hats/brown_hat.md",
+    "hats/bucket.md",
+    "hats/cactus_hat.md",
+    "hats/carrot_hat.md",
+    "hats/coal_hat.md",
+    "hats/dinosaur_hat.md",
+    "hats/dynamite_hat.md",
+    "hats/explosive_drill.md",
+    "hats/gold_hat.md",
+    "hats/gold_trophy_hat.md",
+    "hats/golden_cactus_hat.md",
+    "hats/golden_carrot_hat.md",
+    "hats/golden_gold_hat.md",
+    "hats/golden_pumpkin_hat.md",
+    "hats/golden_sunflower_hat.md",
+    "hats/golden_tree_hat.md",
+    "hats/gray_hat.md",
+    "hats/green_hat.md",
+    "hats/index.md",
+    "hats/interndotgif.md",
+    "hats/low_orbit_potato.md",
+    "hats/mining_hat.md",
+    "hats/mushroom_hat.md",
+    "hats/olexas_hood.md",
+    "hats/pumpkin_hat.md",
+    "hats/purple_hat.md",
+    "hats/quartz_hat.md",
+    "hats/rice_hat.md",
+    "hats/silver_trophy_hat.md",
+    "hats/straw_hat.md",
+    "hats/sunflower_hat.md",
+    "hats/the_farmers_remains.md",
+    "hats/top_hat.md",
+    "hats/traffic_cone.md",
+    "hats/traffic_cone_stack.md",
+    "hats/tree_hat.md",
+    "hats/wizard_hat.md",
+    "hats/wood_trophy_hat.md",
+    "items/bamboo.md",
+    "items/block.md",
+    "items/bone.md",
+    "items/cactus.md",
+    "items/cactus_seed.md",
+    "items/carrot.md",
+    "items/coal.md",
+    "items/dynamite.md",
+    "items/fertilizer.md",
+    "items/gold.md",
+    "items/hay.md",
+    "items/index.md",
+    "items/iron.md",
+    "items/mushroom.md",
+    "items/piggy.md",
+    "items/power.md",
+    "items/pumpkin.md",
+    "items/quartz.md",
+    "items/rice.md",
+    "items/water.md",
+    "items/weird_substance.md",
+    "items/wood.md",
+    "leaderboards/bamboo.md",
+    "leaderboards/bamboo_single.md",
+    "leaderboards/cactus.md",
+    "leaderboards/cactus_single.md",
+    "leaderboards/carrots.md",
+    "leaderboards/carrots_single.md",
+    "leaderboards/dinosaur.md",
+    "leaderboards/dynamite.md",
+    "leaderboards/dynamite_single.md",
+    "leaderboards/fastest_reset.md",
+    "leaderboards/fastest_underground_reset.md",
+    "leaderboards/hay.md",
+    "leaderboards/hay_single.md",
+    "leaderboards/index.md",
+    "leaderboards/maze.md",
+    "leaderboards/maze_single.md",
+    "leaderboards/mushrooms.md",
+    "leaderboards/mushrooms_single.md",
+    "leaderboards/ores.md",
+    "leaderboards/ores_single.md",
+    "leaderboards/pumpkins.md",
+    "leaderboards/pumpkins_single.md",
+    "leaderboards/pyramids.md",
+    "leaderboards/pyramids_single.md",
+    "leaderboards/rice.md",
+    "leaderboards/rice_single.md",
+    "leaderboards/sunflowers.md",
+    "leaderboards/sunflowers_single.md",
+    "leaderboards/treasure_map.md",
+    "leaderboards/wood.md",
+    "leaderboards/wood_single.md",
+    "objects/apple.md",
+    "objects/bamboo.md",
+    "objects/bush.md",
+    "objects/cactus.md",
+    "objects/carrot.md",
+    "objects/dead_pumpkin.md",
+    "objects/dinosaur.md",
+    "objects/dynamite.md",
+    "objects/grass.md",
+    "objects/hedge.md",
+    "objects/index.md",
+    "objects/pumpkin.md",
+    "objects/rice.md",
+    "objects/sunflower.md",
+    "objects/treasure.md",
+    "objects/tree.md",
+    "objects/underground_treasure.md",
+    "reference/gaps.md",
+    "reference/templates.md",
+    "tools/README.md",
+    "unlocks/auto_unlock.md",
+    "unlocks/bamboo.md",
+    "unlocks/cactus.md",
+    "unlocks/carrots.md",
+    "unlocks/coal.md",
+    "unlocks/costs.md",
+    "unlocks/debug.md",
+    "unlocks/debug_2.md",
+    "unlocks/debug_place.md",
+    "unlocks/dictionaries.md",
+    "unlocks/dinosaurs.md",
+    "unlocks/drill.md",
+    "unlocks/dynamite.md",
+    "unlocks/expand.md",
+    "unlocks/explosive_drill.md",
+    "unlocks/fertilizer.md",
+    "unlocks/functions.md",
+    "unlocks/grass.md",
+    "unlocks/hats.md",
+    "unlocks/import.md",
+    "unlocks/index.md",
+    "unlocks/iron.md",
+    "unlocks/jump.md",
+    "unlocks/leaderboard.md",
+    "unlocks/lists.md",
+    "unlocks/loops.md",
+    "unlocks/mazes.md",
+    "unlocks/megafarm.md",
+    "unlocks/mining.md",
+    "unlocks/mushrooms.md",
+    "unlocks/operators.md",
+    "unlocks/ore_boost.md",
+    "unlocks/petrified_pumpkins.md",
+    "unlocks/plant.md",
+    "unlocks/polyculture.md",
+    "unlocks/prospecting.md",
+    "unlocks/pumpkins.md",
+    "unlocks/pyramid.md",
+    "unlocks/quartz.md",
+    "unlocks/rice.md",
+    "unlocks/senses.md",
+    "unlocks/simulation.md",
+    "unlocks/special_soils.md",
+    "unlocks/speed.md",
+    "unlocks/sunflowers.md",
+    "unlocks/the_farmers_remains.md",
+    "unlocks/timing.md",
+    "unlocks/top_hat.md",
+    "unlocks/treasure_map.md",
+    "unlocks/trees.md",
+    "unlocks/underground_leaderboard.md",
+    "unlocks/underground_senses.md",
+    "unlocks/utilities.md",
+    "unlocks/variables.md",
+    "unlocks/watering.md"
+  ]
+}

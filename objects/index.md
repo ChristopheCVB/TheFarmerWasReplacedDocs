@@ -1,0 +1,20 @@
+[Documentation index](../README.md)
+
+# Objects
+
+- [apple](apple.md)
+- [bamboo](bamboo.md)
+- [bush](bush.md)
+- [cactus](cactus.md)
+- [carrot](carrot.md)
+- [dead_pumpkin](dead_pumpkin.md)
+- [dinosaur](dinosaur.md)
+- [dynamite](dynamite.md)
+- [grass](grass.md)
+- [hedge](hedge.md)
+- [pumpkin](pumpkin.md)
+- [rice](rice.md)
+- [sunflower](sunflower.md)
+- [treasure](treasure.md)
+- [tree](tree.md)
+- [underground_treasure](underground_treasure.md)
