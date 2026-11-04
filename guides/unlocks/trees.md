@@ -48,7 +48,7 @@ for i in range(get_world_size()):
 
 ![Animated example 1](../../assets/examples/unlocks/trees-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -94,6 +94,18 @@ print("is_even(5): ", is_even(5))
 print("is_even(-1): ", is_even(-1))
 print("is_even(x): ", is_even(get_pos_x()))
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>is_even(0):  True
+is_even(1):  False
+is_even(2):  True
+is_even(5):  False
+is_even(-1):  False
+is_even(x):  True</pre>
+
+</details>
 
 ---
 

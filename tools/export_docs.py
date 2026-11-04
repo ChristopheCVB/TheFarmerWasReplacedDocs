@@ -4,6 +4,7 @@ import argparse
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 import hashlib
+from html import escape
 import json
 import os
 from pathlib import Path
@@ -12,7 +13,7 @@ import shutil
 from urllib.parse import unquote, urlsplit
 
 from packaged_assets import extract
-from code_examples import BLOCKS, animations, collect, identify, parse_block
+from code_examples import BLOCKS, animations, collect, identify, parse_block, recordings
 
 
 STRING_FILES = ('code_tooltips', 'unlock_tooltips', 'object_tooltips',
@@ -25,7 +26,7 @@ IMAGE_LABELS = {'PlayButton': 'The editor play and pause buttons',
                 'LeaderboardSetup': 'Leaderboard simulation setup',
                 'UndergroundLeaderboardSetup': 'Underground leaderboard simulation setup'}
 LINK = re.compile(r'(!?)\[([^\]]*)\]\(([^)]+)\)')
-FENCES = re.compile(r'(^```[^\n]*\n.*?^```[ \t]*$)', re.M | re.S)
+FENCES = re.compile(r'(^```[^\n]*\n.*?^```[ \t]*$|^<pre>.*?</pre>)', re.M | re.S)
 
 
 def entries(text):
@@ -63,7 +64,16 @@ def generic_data_locations(text):
         'Its actual location depends on the platform and launcher.\n\n', text)
 
 
-def examples(text, animations=None):
+def output_panel(entry):
+    # Preserve native trailing whitespace without introducing Markdown whitespace errors.
+    text = escape(entry['output']).replace(' \n', '&#32;\n').replace('\t\n', '&#9;\n')
+    text = '<pre>' + text + '</pre>' if text else '*No output.*'
+    if not entry['completed']:
+        text += '\n\n*Execution was capped at 30 seconds; output may be incomplete.*'
+    return '<details>\n<summary>Example output</summary>\n\n' + text + '\n\n</details>\n'
+
+
+def examples(text, animations=None, outputs=None):
     count = 0
     def convert(match):
         nonlocal count
@@ -84,11 +94,13 @@ def examples(text, animations=None):
             result += ('<details>\n<summary>Animated example</summary>\n\n'
                        f'![Animated example {count}]({animations[count]})\n\n'
                        '*Offline recreation using extracted game models; simplified visuals. '
-                       'Clips are limited to 15 seconds.*\n\n'
+                       'Clips are limited to 30 seconds.*\n\n'
                        '</details>\n')
+        if outputs and count in outputs:
+            result += '\n' + output_panel(outputs[count])
         return result
     result = BLOCKS.sub(convert, text)
-    if '{{codeexample' in result:
+    if '{{codeexample' in FENCES.sub('', result):
         raise ValueError('Unconverted interactive example')
     return result, count
 
@@ -137,6 +149,7 @@ class Exporter:
         self.examples = []
         self.animation_paths = set()
         self.animations = {}
+        self.outputs = {}
 
     def source_entry(self, key, page):
         if key not in self.all_strings:
@@ -242,6 +255,11 @@ class Exporter:
             self.routes[relative] = destination
             self.examples.extend(collect(source.read_text(encoding='utf-8-sig'), destination))
         self.animations = animations(self.output, self.examples, self.game)
+        recorded = recordings(self.output, self.examples, self.game)
+        self.outputs = {example['id']: recorded[example['id']] for example in self.examples
+                        if example['config'].get('show_output', False)
+                        and isinstance(recorded.get(example['id'], {}).get('output'), str)
+                        and isinstance(recorded[example['id']].get('completed'), bool)}
         self.animation_paths = {entry['gif'] for entry in self.animations.values()}
         for record in records:
             route = f"{record['category']}/{record['name']}"
@@ -274,7 +292,8 @@ class Exporter:
             path = self.routes[source.relative_to(self.source).as_posix()]
             media = {entry['ordinal']: entry['gif'] for entry in self.animations.values()
                      if entry['page'] == path}
-            text, count = examples(generic_data_locations(raw), media)
+            outputs = {entry['ordinal']: entry for entry in self.outputs.values() if entry['page'] == path}
+            text, count = examples(generic_data_locations(raw), media, outputs)
             self.example_count += count
             self.add_page(path, text + f'\n\nSource: `EN/{source.relative_to(self.source).as_posix()}`.\n')
         templates = '# Tooltip templates and localized labels\n\n'
@@ -291,11 +310,17 @@ class Exporter:
                       + '\n\n- Live output, personal statistics, and live item blocks require a running game.\n'
                       '- Examples retain their code and starting conditions. Optional offline GIFs use '
                       'the game interpreter and extracted models with simplified visuals. '
+                      'Example output panels contain interpreter text, including tutorial diagnostics. '
                       'Unsupported examples are listed in `tools/example_media.json` when media has been generated.\n'
                       '- Standalone meshes, sounds, and unrelated artwork are excluded; '
                       'optional GIFs render extracted geometry.\n'
                       '- Static base settings do not reconstruct controller-specific or upgrade formulas.\n'
                       '- The exporter checks assembly hashes and Unity version to reject unsupported builds.\n')
+        capped = [entry for entry in self.animations.values() if entry.get('completed') is False]
+        if capped:
+            self.pages['reference/gaps.md'] += '\n## Examples still executing at 30 seconds\n\n' + '\n'.join(
+                f'- [{entry["id"]}](docs/{entry["page"].removeprefix("guides/")}) — `{entry["gif"]}`'
+                for entry in capped) + '\n'
         return guides
 
     def rewrite(self, text, page):
@@ -381,6 +406,7 @@ Complete installed English guides and gameplay reference, including Underground/
 {sum(len(group) for group in self.strings.values())} source text entries;
 {self.example_count} interactive examples converted to code and starting conditions;
 {len(self.animations)} offline example GIFs;
+{len(self.outputs)} extracted example outputs;
 {len(records)} packaged gameplay records; {len(images)} extracted illustrations.
 
 Packaged records: {', '.join(f'{n} {category}' for category, n in sorted(counts.items()))}.
@@ -391,7 +417,9 @@ All unlock-gated content and hints are visible. Examples use the game's Python-l
 Example conditions preserve gameplay configuration. Complete source examples, including visual
 settings, are retained in the extraction manifest. Optional GIFs execute the game's interpreter
 offline and render extracted models with simplified lighting and effects. Expand **Animated
-example** beneath supported examples to view them. Clips show at most 15 seconds of execution.
+example** beneath supported examples to view them. Clips show at most 30 seconds of execution.
+Expand **Example output** for copyable interpreter output, expression results, and tutorial errors.
+Silent examples show *No output.*; capped runs include a note that output may be incomplete.
 Code and conditions remain available for all examples.
 Media coverage and unsupported examples are recorded in `tools/example_media.json` when generated.
 
@@ -415,8 +443,8 @@ on the platform and launcher; it is a logical placeholder, not a literal filesys
 Source references are relative to the game installation. Unity version: `{version}`.
 The extraction manifest retains the UTC export timestamp, source hashes, and entry coverage.
 
-UI labels, settings, errors, warnings, news, audio, and unrelated artwork are excluded.
-Live farm output and personal statistics require a running game; GIF output comes from offline examples.
+Standalone UI labels, settings, error catalogs, news, audio, and unrelated artwork are excluded.
+Live farm output and personal statistics require a running game; example output is captured offline.
 '''
         maintenance = Path(__file__).with_name('README.md').read_text(encoding='utf-8')
         readme += '\n## All guides\n\n' + '\n'.join(
@@ -435,6 +463,7 @@ Live farm output and personal statistics require a running game; GIF output come
         manifest = {'unity_version': version, 'created_utc': datetime.now(timezone.utc).isoformat(),
                     'guide_count': len(guides), 'example_count': self.example_count,
                     'examples': self.examples, 'animations': list(self.animations.values()),
+                    'outputs': list(self.outputs.values()),
                     'string_counts': {name: len(values) for name, values in self.strings.items()},
                     'record_counts': dict(counts), 'images': images, 'gaps': sorted(self.gaps),
                     'source_entries': dict(sorted(self.coverage.items())),
@@ -464,7 +493,7 @@ def validate(output):
     for page in manifest['pages']:
         path = output / page
         text = path.read_text(encoding='utf-8')
-        prose = ''.join(FENCES.split(text)[::2])
+        prose = FENCES.sub('', text)
         if re.search(r'<(?:/?(?:unlock|dlc|columns|spoiler)|right)\b|\{\{', prose):
             raise ValueError(f'Unconverted game syntax in {page}')
         for match in LINK.finditer(prose):
@@ -481,7 +510,7 @@ def validate(output):
                 if fragment not in anchors:
                     raise ValueError(f'Broken anchor in {page}: {target}')
             links += 1
-        if len(re.findall(r'^```', text, re.M)) % 2:
+        if re.search(r'^```', prose, re.M):
             raise ValueError(f'Unbalanced code fences in {page}')
     for key, pages in manifest['source_entries'].items():
         if not pages or any(page not in manifest['pages'] for page in pages):
@@ -514,11 +543,24 @@ def validate(output):
                     or int.from_bytes(raw[6:8], 'little') != size['x']
                     or int.from_bytes(raw[8:10], 'little') != size['y']
                     or hashlib.sha256(raw).hexdigest() != animation['sha256']
-                    or not 0 < animation['duration'] <= 15.05):
+                    or not 0 < animation['duration'] <= 30.05):
                 raise ValueError(f'Invalid animation: {animation["id"]}')
+        seen_outputs = set()
+        for recorded in manifest.get('outputs', []):
+            entry = all_examples.get(recorded['id'])
+            if (entry is None or recorded['id'] in seen_outputs
+                    or recorded['source_hash'] != entry['source_hash']
+                    or not entry['config'].get('show_output', False)
+                    or not isinstance(recorded.get('output'), str)
+                    or not isinstance(recorded.get('completed'), bool)):
+                raise ValueError('Output does not match an output-enabled source example')
+            seen_outputs.add(recorded['id'])
+            if output_panel(recorded).strip() not in (output / entry['page']).read_text(encoding='utf-8'):
+                raise ValueError(f'Missing or changed example output: {recorded["id"]}')
     return {'pages': len(manifest['pages']), 'local_links': links,
             'source_entries': expected_entries, 'examples': manifest['example_count'],
             'animations': len(manifest.get('animations', [])),
+            'outputs': len(manifest.get('outputs', [])),
             'images': len(manifest['images']), 'description_gaps': len(manifest['gaps'])}
 
 

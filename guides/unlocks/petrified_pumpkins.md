@@ -84,7 +84,7 @@ for _ in range(3):
 
 ![Animated example 1](../../assets/examples/unlocks/petrified_pumpkins-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 

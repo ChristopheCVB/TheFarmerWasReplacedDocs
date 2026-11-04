@@ -1,4 +1,4 @@
-"""Generate offline GIFs for the installed game's visual documentation examples."""
+"""Extract offline example output and generate GIFs for visual examples."""
 
 import argparse
 from collections import Counter
@@ -13,7 +13,7 @@ import subprocess
 import sys
 import tempfile
 
-from code_examples import collect
+from code_examples import collect, plain_output
 from media_assets import extract_media, verify_game
 
 
@@ -68,7 +68,7 @@ def inspect_gif(path):
             image.seek(i)
             image.load()
             duration += image.info.get('duration', 0)
-        if not 0 < duration <= 15050:
+        if not 0 < duration <= 30050:
             raise ValueError('GIF duration is outside the recording limit')
         return {'width': size[0], 'height': size[1], 'duration': duration / 1000,
                 'sha256': digest(path)}
@@ -120,6 +120,8 @@ def generate(game, output, dotnet):
         'Managed/Core.dll', 'Managed/Utils.dll', 'Managed/UnityEngine.CoreModule.dll',
         'resources.assets', 'resources.assets.resS', 'globalgamemanagers.assets',
         'level0', 'sharedassets0.assets', 'sharedassets0.assets.resS']}
+    sources.update({path.relative_to(root).as_posix(): digest(path)
+                    for path in sorted((root / 'StreamingAssets/Languages/EN/Strings').glob('*.txt'))})
     tools = {path.relative_to(ROOT).as_posix(): digest(path) for path in [
         ROOT / 'code_examples.py', ROOT / 'generate_examples.py', ROOT / 'media_assets.py',
         ROOT / 'media_renderer.py', ROOT / 'requirements-media.txt',
@@ -140,19 +142,21 @@ def generate(game, output, dotnet):
     candidates = [example for path in sorted(guides.rglob('*.md'))
                   for example in collect(path.read_text(encoding='utf-8-sig'),
                                          'guides/' + path.relative_to(guides).as_posix())
-                  if example['config'].get('show_image', True)]
+                  if example['config'].get('show_image', True) or example['config'].get('show_output', False)]
     report_path = output / 'tools/example_media.json'
     previous = json.loads(report_path.read_text()) if report_path.exists() else {'examples': []}
     old = {example['id']: example for example in previous['examples']}
     report = {'unity_version': unity_version, 'backend': 'managed-game-core',
-              'fps': 15, 'maximum_duration': 15, **inputs, 'examples': []}
+              'fps': 15, 'maximum_duration': 30, **inputs, 'examples': []}
     for index, example in enumerate(candidates, 1):
         entry = {key: example[key] for key in ['id', 'page', 'ordinal', 'source_hash', 'gif']}
         entry['input_hash'] = fingerprint({'source': example['source_hash'], **inputs})
         prior = old.get(example['id'], {})
         target = output / example['gif']
+        visual = example['config'].get('show_image', True)
         if (prior.get('status') == 'generated' and prior.get('input_hash') == entry['input_hash']
-                and target.is_file() and digest(target) == prior.get('sha256')):
+                and (not example['config'].get('show_output', False) or 'output' in prior)
+                and (not visual or target.is_file() and digest(target) == prior.get('sha256'))):
             entry = prior
         else:
             try:
@@ -160,8 +164,12 @@ def generate(game, output, dotnet):
                 save_json(request, example)
                 result = json.loads(command([dotnet, str(bridge), 'run', str(root / 'Managed'),
                                              str(cache / 'assets/resources.json'), str(request)]))
-                entry.update(encode(result['frames'], example['config'], cache / 'assets', target))
-                entry.update(status='generated', seed=result['seed'], completed=result['completed'])
+                entry.update(seed=result['seed'], completed=result['completed'])
+                if example['config'].get('show_output', False):
+                    entry['output'] = plain_output(result['output'])
+                if visual:
+                    entry.update(encode(result['frames'], example['config'], cache / 'assets', target))
+                entry['status'] = 'generated'
             except Exception as error:
                 reason = str(error).splitlines()[0] or type(error).__name__
                 method = re.search(r'^\s+at ([^\s(]+)\(', str(error), re.M)
@@ -179,6 +187,10 @@ def generate(game, output, dotnet):
               + (': ' + entry['reason'] if 'reason' in entry else ''), flush=True)
     command([sys.executable, str(ROOT / 'export_docs.py'), '--game-dir', str(game), '--output', str(output)])
     print(json.dumps(dict(Counter(entry['status'] for entry in report['examples'])), indent=2))
+    capped = [entry for entry in report['examples'] if entry.get('completed') is False]
+    print(f'Examples still executing at the 30-second cap: {len(capped)}')
+    for entry in capped:
+        print(f'  {entry["id"]}' + (f' -> {entry["gif"]}' if 'sha256' in entry else ' (text only)'))
     return report
 
 

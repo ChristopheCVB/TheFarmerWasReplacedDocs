@@ -48,7 +48,7 @@ for i in range(5):
 
 ![Animated example 1](../../assets/examples/unlocks/expand_2-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -98,7 +98,7 @@ for i in range(get_world_size()):
 
 ![Animated example 2](../../assets/examples/unlocks/expand_2-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -164,7 +164,7 @@ for i in range(get_world_size()):
 
 ![Animated example 3](../../assets/examples/unlocks/expand_2-03.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 

@@ -54,7 +54,7 @@ for _ in range(6):
 
 ![Animated example 1](../../assets/examples/unlocks/auto_unlock-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -84,6 +84,13 @@ To determine the cost of an unlock, simply use the `get_cost()` function as you 
 ```python
 print(get_cost(Unlocks.Loops))
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>{Items.Hay:5}</pre>
+
+</details>
 
 ---
 

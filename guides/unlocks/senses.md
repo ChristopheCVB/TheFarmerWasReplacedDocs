@@ -52,7 +52,14 @@ if get_pos_x() == 1 and get_pos_y() == 0:
 
 ![Animated example 1](../../assets/examples/unlocks/senses-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+<pre>x = 1 y = 0</pre>
 
 </details>
 
@@ -97,7 +104,14 @@ print(num_items(Items.Hay))
 
 ![Animated example 2](../../assets/examples/unlocks/senses-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+<pre>10</pre>
 
 </details>
 
@@ -149,7 +163,15 @@ if get_ground_type() != Grounds.Soil:
 
 ![Animated example 3](../../assets/examples/unlocks/senses-03.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+<pre>Entities.Bush
+Grounds.Grassland</pre>
 
 </details>
 

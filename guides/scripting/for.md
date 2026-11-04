@@ -73,7 +73,14 @@ for i in range(5):
 
 ![Animated example 1](../../assets/examples/scripting/for-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
 
 </details>
 
@@ -128,7 +135,14 @@ harvest()
 
 ![Animated example 2](../../assets/examples/scripting/for-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
 
 </details>
 

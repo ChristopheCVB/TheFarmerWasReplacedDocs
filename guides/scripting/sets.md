@@ -58,6 +58,17 @@ for element in my_set:
     print(element)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>{}
+{1,North}
+{1}
+North is not in set
+1</pre>
+
+</details>
+
 Just like dictionaries, sets are unordered, so there are no guarantees about the order in which the elements are iterated.
 
 Also, elements in sets are unique, so adding an element that is already in the set will not change the set.

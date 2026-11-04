@@ -53,7 +53,7 @@ harvest()
 
 ![Animated example 1](../../assets/examples/unlocks/fertilizer-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -123,7 +123,7 @@ for _ in range(6):
 
 ![Animated example 2](../../assets/examples/unlocks/fertilizer-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 

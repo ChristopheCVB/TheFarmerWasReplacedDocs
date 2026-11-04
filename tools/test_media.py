@@ -9,8 +9,8 @@ import subprocess
 import tempfile
 import unittest
 
-from code_examples import animations, collect, identify, parse_block
-from export_docs import examples
+from code_examples import animations, collect, identify, parse_block, plain_output, recordings
+from export_docs import examples, Exporter
 
 
 class ExampleTests(unittest.TestCase):
@@ -64,6 +64,75 @@ class ExampleTests(unittest.TestCase):
             path.write_text(json.dumps(report))
             with self.assertRaisesRegex(ValueError, 'path'):
                 animations(root, [entry], root)
+
+    def test_output_panels_preserve_literal_text_and_disclose_limits(self):
+        self.assertEqual(plain_output('<font=code><noparse><b>literal</b></noparse></font>'),
+                         '<b>literal</b>')
+        output = ('<color=red>Error:</color> func()\n^^^^^ \n<unlock=x>{{literal}}\n```\n[a](missing)'
+                  '\n{{codeexample\n</pre><script>unsafe</script>')
+        entry = {'output': plain_output(output), 'completed': False}
+        text, _ = examples(self.source, {1: 'example.gif'}, {1: entry})
+        self.assertLess(text.index('<summary>Animated example'), text.index('<summary>Example output'))
+        self.assertIn('<pre>Error: func()\n^^^^^&#32;\n&lt;unlock=x&gt;{{literal}}\n```\n[a](missing)', text)
+        self.assertIn('&lt;/pre&gt;&lt;script&gt;unsafe&lt;/script&gt;</pre>', text)
+        self.assertNotIn('<script>', text)
+        self.assertIn('capped at 30 seconds', text)
+        exporter = object.__new__(Exporter)
+        exporter.all_strings, exporter.routes = {}, {}
+        exporter.animation_paths = {'example.gif'}
+        self.assertIn('<pre>Error: func()', exporter.rewrite(text, 'guides/test.md'))
+        silent, _ = examples(self.source, outputs={1: {'output': '', 'completed': True}})
+        self.assertIn('*No output.*', silent)
+        self.assertNotIn('capped', silent)
+        self.assertNotIn('Example output</summary>', examples(self.source)[0])
+
+    def test_recorded_output_requires_current_provenance(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            entry = collect(self.source, 'guides/test.md')[0]
+            generated = dict(entry, status='generated', output='5', completed=True)
+            (root / 'tools').mkdir()
+            path = root / 'tools/example_media.json'
+            report = {'sources': {}, 'tools': {}, 'examples': [generated]}
+            path.write_text(json.dumps(report))
+            self.assertEqual(recordings(root, [entry], root)[entry['id']]['output'], '5')
+            self.assertFalse(recordings(root, [dict(entry, source_hash='changed')], root))
+            report['sources']['missing'] = 'outdated'
+            path.write_text(json.dumps(report))
+            self.assertFalse(recordings(root, [entry], root))
+            report['sources'] = {'../outside': 'unsafe'}
+            path.write_text(json.dumps(report))
+            with self.assertRaisesRegex(ValueError, 'provenance path'):
+                recordings(root, [entry], root)
+
+    def test_exporter_omits_failed_hidden_or_stale_output(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            game, output = root / 'game', root / 'export'
+            english = game / 'TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN'
+            (english / 'docs').mkdir(parents=True)
+            (english / 'Strings').mkdir()
+            for name in ['code_tooltips', 'unlock_tooltips', 'object_tooltips',
+                         'item_tooltips', 'hat_tooltips', 'leaderboard_tooltips']:
+                (english / 'Strings' / (name + '.txt')).write_text('')
+            (output / 'tools').mkdir(parents=True)
+            for enabled, status, stale in [(True, 'generated', False), (True, 'failed', False),
+                                           (False, 'generated', False), (True, 'generated', True)]:
+                with self.subTest(enabled=enabled, status=status, stale=stale):
+                    source = ('{{codeexample\n' + json.dumps({'show_image': False, 'show_output': enabled})
+                              + '\n#CODE\nprint(5)\n}}')
+                    (english / 'docs/test.md').write_text(source)
+                    entry = collect(source, 'guides/test.md')[0]
+                    recorded = dict(entry, status=status)
+                    if status == 'generated':
+                        recorded.update(output='5', completed=True)
+                    if stale:
+                        recorded['source_hash'] = 'old'
+                    report = {'sources': {}, 'tools': {}, 'examples': [recorded]}
+                    (output / 'tools/example_media.json').write_text(json.dumps(report))
+                    exporter = Exporter(game, output)
+                    exporter.prepare([])
+                    self.assertEqual(bool(exporter.outputs), enabled and status == 'generated' and not stale)
 
 
 @unittest.skipUnless(os.environ.get('TFWR_GAME_DIR'), 'Set TFWR_GAME_DIR for offline game checks')
@@ -149,7 +218,7 @@ class GameTests(unittest.TestCase):
         example['code'] = 'while True:\n\tdo_a_flip()'
         result = self.run_example(example)
         self.assertFalse(result['completed'])
-        self.assertEqual(len(result['frames']), 225)
+        self.assertEqual(len(result['frames']), 450)
 
     def test_output_comes_from_the_interpreter(self):
         example = self.source('first_program.md')
@@ -157,6 +226,41 @@ class GameTests(unittest.TestCase):
         example['code'] = 'print(2 + 3)'
         result = self.run_example(example)
         self.assertIn('5', result['frames'][-1]['output'])
+        self.assertEqual(result['output'], result['frames'][-1]['output'])
+
+    def test_output_only_result_and_silent_example(self):
+        result = self.run_example(self.source('scripting/operators.md'))
+        self.assertTrue(result['completed'])
+        self.assertEqual(plain_output(result['output']), '5')
+        self.assertEqual(result['frames'], [])
+        silent = self.run_example(self.source('scripting/functions.md'))
+        self.assertTrue(silent['completed'])
+        self.assertEqual(silent['output'], '')
+
+    def test_tutorial_runtime_error_has_native_diagnostic_and_carets(self):
+        result = self.run_example(self.source('scripting/functions.md', 3))
+        self.assertTrue(result['completed'])
+        text = plain_output(result['output'])
+        self.assertIn('Error: func has never been defined.', text)
+        self.assertIn('func()\n^^^^^', text)
+        self.assertEqual(result['frames'], [])
+
+    def test_parse_error_is_captured_as_output(self):
+        example = self.source('scripting/functions.md', 3)
+        example['code'] = 'if True\n\tpass'
+        result = self.run_example(example)
+        self.assertTrue(result['completed'])
+        self.assertIn('Error:', result['output'])
+        self.assertIn('colon', plain_output(result['output']))
+        self.assertIn('^', result['output'])
+
+    def test_output_only_loop_keeps_partial_output_at_limit(self):
+        example = self.source('scripting/functions.md', 3)
+        example['code'] = 'print("started")\nwhile True:\n\tpass'
+        result = self.run_example(example)
+        self.assertFalse(result['completed'])
+        self.assertIn('started', result['output'])
+        self.assertEqual(result['frames'], [])
 
 
 if __name__ == '__main__':

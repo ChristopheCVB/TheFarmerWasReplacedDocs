@@ -52,6 +52,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 2 + 3
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>5</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -76,6 +83,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 ```python
 3 - 2
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>1</pre>
+
+</details>
 
 `*`, `/` and `//` are used for multiplication and division.
 
@@ -104,6 +118,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 2 * 3
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>6</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -128,6 +149,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 ```python
 5 / 2
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>2.5</pre>
+
+</details>
 
 `//` does the same thing as `/`, but the result is floored (rounded down to the nearest integer).
 
@@ -156,6 +184,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 5 // 2
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>2</pre>
+
+</details>
+
 `%` is the modulo operator, also known as the remainder operator. It divides the two numbers and returns the remainder. You can also think of it as repeatedly subtracting the right-hand number from the left-hand number until the remainder is less than the right-hand number.
 
 **Example conditions**
@@ -183,6 +218,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 4 % 2
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>0</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -207,6 +249,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 ```python
 5 % 2
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>1</pre>
+
+</details>
 
 **Example conditions**
 
@@ -233,6 +282,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 6 % 2
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>0</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -258,6 +314,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 2 % 6
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>2</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -282,6 +345,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 ```python
 1.5 % 1
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>0.5</pre>
+
+</details>
 
 `**` is the power operator.
 
@@ -310,6 +380,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 2**2
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>4</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -334,6 +411,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 ```python
 (-5)**3
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>-125</pre>
+
+</details>
 
 ## Comparison Operators
 
@@ -364,6 +448,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 2 == 2
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>True</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -389,6 +480,13 @@ The logic operators (also called boolean operators) `not, and, or` are used to c
 Entities.Bush != Entities.Bush
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>False</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -413,6 +511,13 @@ Entities.Bush != Entities.Bush
 ```python
 3 != 3 + 1
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>True</pre>
+
+</details>
 
 `<=`, `>=`, `<`, and `>` can only be used with numbers. They check whether the left number is less than or equal to (`<=`), greater than or equal to (`>=`), less than (`<`), or greater than (`>`) the right number.
 
@@ -441,6 +546,13 @@ Entities.Bush != Entities.Bush
 1 <= 1
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>True</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -465,6 +577,13 @@ Entities.Bush != Entities.Bush
 ```python
 2 >= 3
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>False</pre>
+
+</details>
 
 **Example conditions**
 
@@ -491,6 +610,13 @@ Entities.Bush != Entities.Bush
 -2 < -1
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>True</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -515,6 +641,13 @@ Entities.Bush != Entities.Bush
 ```python
 6 > 6
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>False</pre>
+
+</details>
 
 ## Logic Operators
 
@@ -545,6 +678,13 @@ Entities.Bush != Entities.Bush
 not False
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>True</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -569,6 +709,13 @@ not False
 ```python
 not True
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>False</pre>
+
+</details>
 
 `and` evaluates to `True` only if both values are `True`.
 
@@ -597,6 +744,13 @@ not True
 True and True
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>True</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -622,6 +776,13 @@ True and True
 True and False
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>False</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -646,6 +807,13 @@ True and False
 ```python
 False and False
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>False</pre>
+
+</details>
 
 `or` evaluates to `True` if at least one of the values is `True`.
 
@@ -674,6 +842,13 @@ False and False
 True or True
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>True</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -699,6 +874,13 @@ True or True
 True or False
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>True</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -723,6 +905,13 @@ True or False
 ```python
 False or False
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>False</pre>
+
+</details>
 
 Operators can be combined into larger expressions, but be careful about the order of operations. Use parentheses to make the intended order explicit.
 
@@ -750,6 +939,13 @@ Operators can be combined into larger expressions, but be careful about the orde
 ```python
 (4 % 2 == 1 or 4 % 2 == 0) and 2 + 3 > 4
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>True</pre>
+
+</details>
 
 ---
 

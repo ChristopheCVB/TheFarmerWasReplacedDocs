@@ -35,6 +35,22 @@ for i in range(10):
 	print("this is never printed")
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>this happens every time
+this happens every time
+this happens every time
+this happens every time
+this happens every time
+this happens every time
+this happens every time
+this happens every time
+this happens every time
+this happens every time</pre>
+
+</details>
+
 This runs all `10` iterations of the loop, but the `print` statement after the `continue` is always skipped.
 
 It also works on `while` loops.
@@ -83,7 +99,7 @@ while True:
 
 ![Animated example 2](../../assets/examples/scripting/continue-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -132,7 +148,7 @@ while True:
 
 ![Animated example 3](../../assets/examples/scripting/continue-03.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -166,6 +182,18 @@ for i in range(2):
 		print("this is never printed")
 	print("this is printed 2 times")
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>this is printed 4 times
+this is printed 4 times
+this is printed 2 times
+this is printed 4 times
+this is printed 4 times
+this is printed 2 times</pre>
+
+</details>
 
 ---
 

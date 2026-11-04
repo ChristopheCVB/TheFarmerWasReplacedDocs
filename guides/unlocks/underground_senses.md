@@ -56,7 +56,7 @@ print(get_pos_z())
 
 ![Animated example 1](../../assets/examples/unlocks/underground_senses-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -99,7 +99,7 @@ if get_ground_type() == Grounds.Dirt:
 
 ![Animated example 2](../../assets/examples/unlocks/underground_senses-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -152,7 +152,7 @@ while get_hardness() == 2 and get_stability() == 3:
 
 ![Animated example 3](../../assets/examples/unlocks/underground_senses-03.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 

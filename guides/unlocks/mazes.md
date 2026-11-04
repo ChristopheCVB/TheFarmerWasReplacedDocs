@@ -52,7 +52,7 @@ use_item(Items.Weird_Substance, substance)
 
 ![Animated example 1](../../assets/examples/unlocks/mazes-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -126,7 +126,14 @@ if move(North) and get_entity_type() == Entities.Treasure:
 
 ![Animated example 2](../../assets/examples/unlocks/mazes-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+<pre>True True False False</pre>
 
 </details>
 
@@ -220,7 +227,14 @@ harvest()
 
 ![Animated example 3](../../assets/examples/unlocks/mazes-03.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
 
 </details>
 
@@ -277,7 +291,14 @@ move(directions[index])
 
 ![Animated example 4](../../assets/examples/unlocks/mazes-04.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
 
 </details>
 

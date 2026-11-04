@@ -45,6 +45,13 @@ time, ticks = get_time(), get_tick_count()
 quick_print(time - start_time, ticks - start_ticks)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>0.5 201</pre>
+
+</details>
+
 ## Runtime Details
 
 ### Heads-Up

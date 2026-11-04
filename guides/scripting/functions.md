@@ -53,6 +53,13 @@ def move_n_dir(n, dir):
 		move(dir)
 ```
 
+<details>
+<summary>Example output</summary>
+
+*No output.*
+
+</details>
+
 The `def` keyword signals that this is a function definition. 
 `move_n_dir` is the name that the function gets bound to. This can be any valid variable name and will be used to call the function.
 `n` and `dir` are parameters. They are variables that hold the values passed into the function; these values are also called arguments. You can add as many parameters to a function definition as you want.
@@ -99,7 +106,14 @@ move_n_dir(2, East)
 
 ![Animated example 2](../../assets/examples/scripting/functions-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
 
 </details>
 
@@ -134,6 +148,17 @@ func()
 def func():
 	pass
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>Error: func has never been defined. You must assign a value to a variable before using it.
+In:&#32;
+func()
+^^^^^&#32;
+--------------------------------------------------------------------</pre>
+
+</details>
 
 ## Return Values
 
@@ -178,7 +203,14 @@ if xor(True, False):
 
 ![Animated example 4](../../assets/examples/scripting/functions-04.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
 
 </details>
 
@@ -228,7 +260,14 @@ f(True)
 
 ![Animated example 5](../../assets/examples/scripting/functions-05.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
 
 </details>
 
@@ -278,7 +317,14 @@ f()()
 
 ![Animated example 6](../../assets/examples/scripting/functions-06.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
 
 </details>
 
@@ -331,7 +377,14 @@ f(use_item, Items.Fertilizer)
 
 ![Animated example 7](../../assets/examples/scripting/functions-07.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
 
 </details>
 

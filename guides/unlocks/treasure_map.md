@@ -81,7 +81,14 @@ dig()
 
 ![Animated example 1](../../assets/examples/unlocks/treasure_map-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+<pre>instructions:  DWWEENNWWSSEENNWWSSEENNWWSSEENNWWSSEENNWWSSEENNWWSSEENNWWSSEENNWWSSEENNWWSSEENNDSNESSSWWWDEEENWWWNDD</pre>
 
 </details>
 
@@ -137,6 +144,44 @@ instructions = measure()
 for letter in instructions:
     print(letter)
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>D
+W
+W
+E
+E
+N
+N
+W
+W
+S
+S
+E
+E
+N
+N
+W
+W
+S
+S
+E
+E
+N
+N
+W
+W
+S
+S
+E
+E
+N</pre>
+
+*Execution was capped at 30 seconds; output may be incomplete.*
+
+</details>
 
 The drone has to stay on top of `Grounds.Treasure_Path` blocks the whole time. If it moves to other ground, the path will break and the treasure will be lost.
 

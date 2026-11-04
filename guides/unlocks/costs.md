@@ -34,6 +34,13 @@ The `get_cost()` function returns such a dictionary. It returns the cost of a pl
 print(get_cost(Entities.Pumpkin))
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>{Items.Carrot:1}</pre>
+
+</details>
+
 For unlocks, you can pass an optional second argument specifying the unlock level whose cost you want. By default, it uses the current unlock level.
 
 **Example conditions**
@@ -60,6 +67,14 @@ For unlocks, you can pass an optional second argument specifying the unlock leve
 print(get_cost(Unlocks.Loops, 0))
 print(get_cost(Unlocks.Loops, 1))
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>{Items.Hay:5}
+{}</pre>
+
+</details>
 
 For unlocks that are already at the maximum level, `get_cost()` returns an empty dictionary.
 
@@ -89,6 +104,14 @@ for item in cost:
 	if num_items(item) < cost[item]:
 		print("missing", cost[item] - num_items(item), item)
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>missing 1 Items.Hay
+missing 1 Items.Wood</pre>
+
+</details>
 
 ---
 

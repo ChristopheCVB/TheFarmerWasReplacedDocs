@@ -61,7 +61,7 @@ harvest()
 
 ![Animated example 1](../../assets/examples/scripting/while-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -125,7 +125,7 @@ while False:
 
 ![Animated example 2](../../assets/examples/scripting/while-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -166,7 +166,7 @@ while True:
 
 ![Animated example 3](../../assets/examples/scripting/while-03.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -218,7 +218,7 @@ harvest()
 
 ![Animated example 4](../../assets/examples/scripting/while-04.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 

@@ -56,7 +56,7 @@ if can_harvest():
 
 ![Animated example 1](../../assets/examples/unlocks/speed-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 

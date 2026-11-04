@@ -52,7 +52,7 @@ else:
 
 ![Animated example 1](../../assets/examples/scripting/if-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -98,7 +98,7 @@ if condition:
 
 ![Animated example 2](../../assets/examples/scripting/if-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -143,7 +143,7 @@ else:
 
 ![Animated example 3](../../assets/examples/scripting/if-03.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 

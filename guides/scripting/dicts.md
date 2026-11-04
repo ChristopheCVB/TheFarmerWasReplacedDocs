@@ -34,6 +34,13 @@ A dictionary can be created like this:
 right_of = {North:East, East:South, South:West, West:North}
 ```
 
+<details>
+<summary>Example output</summary>
+
+*No output.*
+
+</details>
+
 The expression before the colon is the key and the expression after the colon is the value to which the key maps.
 The above dictionary maps each direction to the direction to its right.
 
@@ -64,6 +71,13 @@ x, y = get_pos_x(), get_pos_y()
 entity_dict = {(x,y):get_entity_type()}
 ```
 
+<details>
+<summary>Example output</summary>
+
+*No output.*
+
+</details>
+
 Accessing the value mapped to a key is similar to accessing an element in a list:
 `value = dict[key]`
 
@@ -91,6 +105,13 @@ Accessing the value mapped to a key is similar to accessing an element in a list
 right_of = {North:East, East:South, South:West, West:North}
 print(right_of[South])
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>West</pre>
+
+</details>
 
 You can add a new key-value pair to a dictionary like this:
 `dict[key] = value`
@@ -143,7 +164,14 @@ print(entity_dict)
 
 ![Animated example 4](../../assets/examples/scripting/dicts-04.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+<pre>{(0,0):Entities.Grass,(1,0):Entities.Bush,(2,0):Entities.Tree}</pre>
 
 </details>
 
@@ -183,6 +211,17 @@ for key in right_of:
 	value = right_of[key]
 	print(key, ":", value)
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>True
+North : East
+East : South
+South : West
+West : North</pre>
+
+</details>
 
 There are no guarantees about the order in which the keys are iterated.
 

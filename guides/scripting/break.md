@@ -34,6 +34,13 @@ for i in range(10):
 print(i)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>0</pre>
+
+</details>
+
 This prints `0` because `i` is `0` during the first iteration, after which the `break` statement ends the loop.
 
 It also works on `while` loops.
@@ -81,7 +88,7 @@ harvest()
 
 ![Animated example 2](../../assets/examples/scripting/break-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -130,7 +137,7 @@ harvest()
 
 ![Animated example 3](../../assets/examples/scripting/break-03.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -163,6 +170,22 @@ for i in range(10):
 		print("this is never printed")
 	print("this is printed 10 times")
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>this is printed 10 times
+this is printed 10 times
+this is printed 10 times
+this is printed 10 times
+this is printed 10 times
+this is printed 10 times
+this is printed 10 times
+this is printed 10 times
+this is printed 10 times
+this is printed 10 times</pre>
+
+</details>
 
 ---
 

@@ -39,7 +39,7 @@ def collect(text, page):
     return result
 
 
-def animations(output, examples, game):
+def recordings(output, examples, game):
     report_path = output / 'tools/example_media.json'
     if not report_path.exists():
         return {}
@@ -57,9 +57,18 @@ def animations(output, examples, game):
     result = {}
     for entry in report['examples']:
         example = by_id.get(entry['id'])
-        if (entry['status'] != 'generated' or example is None
-                or entry['source_hash'] != example['source_hash']
-                or not example['config'].get('show_image', True)):
+        if example is None or entry['source_hash'] != example['source_hash']:
+            continue
+        result[example['id']] = entry
+    return result
+
+
+def animations(output, examples, game):
+    result = {}
+    by_id = {example['id']: example for example in examples}
+    for entry in recordings(output, examples, game).values():
+        example = by_id[entry['id']]
+        if entry['status'] != 'generated' or not example['config'].get('show_image', True):
             continue
         if entry['gif'] != example['gif']:
             raise ValueError('Animation path does not match its example')
@@ -69,3 +78,8 @@ def animations(output, examples, game):
         if path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == entry['sha256']:
             result[example['id']] = entry
     return result
+
+
+def plain_output(text):
+    return re.sub(r'<noparse>(.*?)(?:</noparse>|$)|</?(?:font|color|b|i|size)(?:=[^>]+)?>',
+                  lambda match: match[1] if match[1] is not None else '', text, flags=re.S)

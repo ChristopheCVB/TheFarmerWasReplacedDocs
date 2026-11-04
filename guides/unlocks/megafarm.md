@@ -73,7 +73,16 @@ while True:
 
 ![Animated example 1](../../assets/examples/unlocks/megafarm-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
+
+*Execution was capped at 30 seconds; output may be incomplete.*
 
 </details>
 
@@ -119,7 +128,7 @@ do_a_flip()
 
 ![Animated example 2](../../assets/examples/unlocks/megafarm-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -173,7 +182,16 @@ while True:
 
 ![Animated example 3](../../assets/examples/unlocks/megafarm-03.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
+
+*Execution was capped at 30 seconds; output may be incomplete.*
 
 </details>
 
@@ -228,7 +246,14 @@ for dir in [North, East, South, West]:
 
 ![Animated example 4](../../assets/examples/unlocks/megafarm-04.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
 
 </details>
 
@@ -286,7 +311,14 @@ for_all(harvest)
 
 ![Animated example 5](../../assets/examples/unlocks/megafarm-05.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
 
 </details>
 
@@ -349,7 +381,7 @@ print(wait_for(drone))
 
 ![Animated example 6](../../assets/examples/unlocks/megafarm-06.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -397,6 +429,13 @@ wait_for(spawn_drone(increment))
 print(x)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>0</pre>
+
+</details>
+
 This prints `0` because the new drone incremented its own copy of the global `x`, which does not affect the first drone's `x`.
 
 ## Passing Arguments
@@ -439,6 +478,14 @@ l = ['red']
 wait_for(spawn_drone(modify, l))
 print(l)
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>[&#x27;red&#x27;,&#x27;green&#x27;]
+[&#x27;red&#x27;]</pre>
+
+</details>
 
 ## Race Conditions
 

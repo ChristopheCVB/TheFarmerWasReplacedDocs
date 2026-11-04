@@ -62,7 +62,7 @@ for i in range(a):
 
 ![Animated example 1](../../assets/examples/scripting/variables-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -109,7 +109,7 @@ while i < a:
 
 ![Animated example 2](../../assets/examples/scripting/variables-02.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 

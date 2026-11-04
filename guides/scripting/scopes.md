@@ -74,6 +74,13 @@ f()
 print(x)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>0</pre>
+
+</details>
+
 This code prints `0` because the local `x` inside `f` is not the same variable as the global `x`, so the global `x` remains unchanged. This is important because otherwise a function call could accidentally overwrite a global variable that happens to have the same name as one of the function's local variables.
 
 If you want to write to a global variable, you must do so explicitly using the `global` keyword.
@@ -108,6 +115,13 @@ f()
 print(x)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>1</pre>
+
+</details>
+
 In this example, `global x` binds `x` to the global variable `x` defined above it. The code will now print `1`.
 Note that changing global variables is usually the first step towards spaghetti code, where every part of the program affects every other part of the program, so don't overuse it.
 
@@ -140,6 +154,13 @@ for i in range(3):
     pass
 print(i)
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>2</pre>
+
+</details>
 
 This prints `2` because the last iteration of the `for` loop assigned `2` to `i`.
 

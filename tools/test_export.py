@@ -4,11 +4,13 @@ import json
 from pathlib import Path
 import re
 import struct
+import tempfile
 import unittest
 import zlib
 
 from export_docs import Exporter, entries, examples, generic_data_locations, multiline_code, validate
 from packaged_assets import Reader, decode_value
+from code_examples import identify
 
 
 class ConversionTests(unittest.TestCase):
@@ -76,6 +78,31 @@ class ConversionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'boolean'):
             decode_value(Reader(b'\x02\0\0\0'), 'bool', {})
 
+    def test_output_validation_rejects_changed_text_or_source(self):
+        source = '{{codeexample\n{"show_image":false,"show_output":true}\n#CODE\nprint(5)\n}}'
+        entry = identify({'config': {'show_image': False, 'show_output': True},
+                          'setup': '', 'code': 'print(5)'}, 'guides/test.md', 1)
+        recorded = dict(entry, status='generated', output='5', completed=True)
+        page, _ = examples(source, outputs={1: recorded})
+        manifest = {'string_counts': {}, 'source_entries': {}, 'pages': ['guides/test.md'],
+                    'images': [], 'examples': [entry], 'example_count': 1, 'outputs': [recorded], 'gaps': []}
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'guides').mkdir()
+            (root / 'tools').mkdir()
+            path = root / 'tools/extraction_manifest.json'
+            path.write_text(json.dumps(manifest))
+            (root / 'guides/test.md').write_text(page)
+            self.assertEqual(validate(root)['outputs'], 1)
+            (root / 'guides/test.md').write_text(page.replace('<pre>5</pre>', '<pre>wrong</pre>'))
+            with self.assertRaisesRegex(ValueError, 'changed example output'):
+                validate(root)
+            (root / 'guides/test.md').write_text(page)
+            recorded['source_hash'] = 'stale'
+            path.write_text(json.dumps(manifest))
+            with self.assertRaisesRegex(ValueError, 'output-enabled source'):
+                validate(root)
+
     def test_logical_data_paths_and_platform_list(self):
         source = ('Before.\n\nThe persistent data folder is located at:\n\n'
                   '- Windows: `<profile>/vendor/game`\n'
@@ -97,6 +124,17 @@ class ConversionTests(unittest.TestCase):
 
 class CollectionTests(unittest.TestCase):
     root = Path(__file__).resolve().parent.parent
+
+    def test_cap_report_lists_only_unfinished_gifs(self):
+        manifest = json.loads((self.root / 'tools/extraction_manifest.json').read_text())
+        report = (self.root / 'reference/gaps.md').read_text()
+        for entry in manifest.get('animations', []):
+            with self.subTest(example=entry['id']):
+                if entry.get('completed') is False:
+                    self.assertIn(entry['id'], report)
+                    self.assertIn(entry['gif'], report)
+                else:
+                    self.assertNotIn(entry['gif'], report)
 
     def test_collection_coverage_and_links(self):
         result = validate(self.root)

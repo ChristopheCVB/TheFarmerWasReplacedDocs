@@ -52,7 +52,14 @@ harvest()
 
 ![Animated example 1](../../assets/examples/unlocks/polyculture-01.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
+
+</details>
+
+<details>
+<summary>Example output</summary>
+
+<pre>Entities.Tree (1,2)</pre>
 
 </details>
 

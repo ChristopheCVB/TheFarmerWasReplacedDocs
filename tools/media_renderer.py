@@ -4,7 +4,6 @@ import json
 import math
 import os
 from pathlib import Path
-import re
 
 os.environ.setdefault('PYOPENGL_PLATFORM', 'egl')
 
@@ -12,6 +11,8 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 import pyrender
 import trimesh
+
+from code_examples import plain_output
 
 
 FLIP = np.diag([-1., 1., 1., 1.])
@@ -146,7 +147,7 @@ class Renderer:
         if self.output_width:
             x = self.width - self.output_width + 10
             draw.text((x, 8), 'Output', fill='#a4b7c4', font=self.font)
-            text = re.sub(r'</?(?:color|b|i|size)(?:=[^>]+)?>', '', frame['output'])
+            text = plain_output(frame['output'])
             width = max(1, (self.output_width - 20) // 8)
             lines = [part[start:start + width] for part in text.splitlines()
                      for start in range(0, max(1, len(part)), width)]

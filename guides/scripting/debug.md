@@ -46,6 +46,13 @@ Examples:
 print(0.24)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>0.24</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -70,6 +77,13 @@ print(0.24)
 print(can_harvest())
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>False</pre>
+
+</details>
+
 **Example conditions**
 
 ```json
@@ -93,6 +107,13 @@ print(can_harvest())
 ```python
 print(get_pos_x(), get_pos_y())
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>0 0</pre>
+
+</details>
 
 The `print()` function prints the value directly into the air and to the [Output](../output.md) page.
 

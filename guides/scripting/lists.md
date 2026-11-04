@@ -34,6 +34,13 @@ some_list = [2, True, Items.Hay]
 print(some_list)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>[2,True,Items.Hay]</pre>
+
+</details>
+
 The list now contains the values `2`, `True`, and `Items.Hay`.
 A list can also be empty:
 
@@ -61,6 +68,13 @@ A list can also be empty:
 empty_list = []
 print(empty_list)
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>[]</pre>
+
+</details>
 
 You can access an element of a list by its index. The index is `0` for the first element, `1` for the second element, `2` for the third, and so on.
 
@@ -114,7 +128,7 @@ plant(entities[1])
 
 ![Animated example 3](../../assets/examples/scripting/lists-03.gif)
 
-*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 30 seconds.*
 
 </details>
 
@@ -148,6 +162,13 @@ for number in numbers:
 print(sum)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>18</pre>
+
+</details>
+
 The following list methods allow you to add and remove elements:
 
 `elements.append(elem)` adds an element to the end of the list:
@@ -178,6 +199,13 @@ numbers.append(7)
 print(numbers)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>[2,6,12,7]</pre>
+
+</details>
+
 `elements.remove(elem)` removes the first occurrence of an element from a list:
 
 **Example conditions**
@@ -206,6 +234,13 @@ numbers.remove(2)
 print(numbers)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>[1,4,2]</pre>
+
+</details>
+
 `elements.insert(index, elem)` inserts an element at the given index:
 
 **Example conditions**
@@ -233,6 +268,13 @@ some_list = [Entities.Tree, Items.Hay]
 some_list.insert(1, Items.Wood)
 print(some_list)
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>[Entities.Tree,Items.Wood,Items.Hay]</pre>
+
+</details>
 
 `elements.pop(index)` removes the element at the specified index.
 If no index is specified, the last item is removed.
@@ -265,6 +307,14 @@ numbers.pop(1)
 print(numbers)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>[3,5,8]
+[3,8]</pre>
+
+</details>
+
 The `len()` function returns the length of the list.
 
 **Example conditions**
@@ -291,6 +341,13 @@ The `len()` function returns the length of the list.
 numbers = [3, 5, 8, 25]
 print(len(numbers))
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>4</pre>
+
+</details>
 
 Lists have reference semantics. This means that assigning a list to a variable assigns the same list object to that variable, rather than making a copy of the list.
 If two variables reference the same list, changes to the list will be seen by both.
@@ -322,6 +379,14 @@ b.pop()
 print(a)
 print(b)
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>[1]
+[1]</pre>
+
+</details>
 
 ---
 

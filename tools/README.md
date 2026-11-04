@@ -33,7 +33,7 @@ To validate an existing collection without exporting:
 python tools/export_docs.py --validate-only
 ```
 
-## Optional animated examples
+## Optional example output and animations
 
 The media generator runs the installed game's managed interpreter and simulator outside Unity.
 It loads extracted gameplay records and scene constants, and renders the original models with
@@ -53,14 +53,22 @@ Use `--dotnet /path/to/dotnet` when the SDK is outside `PATH`. The first bridge 
 Mono.Cecil 0.11.6 from NuGet. Subsequent generation reuses unchanged GIFs and local build artifacts.
 `--output` selects a separate exported collection.
 
-All examples with `show_image` enabled are attempted. Recordings use the source image dimensions,
+All examples with `show_image` or `show_output` enabled are attempted. Recordings use the source image dimensions,
 camera, setup, timing, inventory, unlock exclusions, and seed. The simulation panel contains inventory
 and output when enabled; the code remains searchable Markdown. GIFs loop at 15 fps, stop after
-completion plus a one-second hold, and last at most 15 seconds. Sources with a negative seed get
+completion plus a one-second hold, and last at most 30 seconds including that hold. Sources with a negative seed get
 an explicitly recorded effective seed.
 
-Generated GIFs appear in collapsed **Animated example** disclosures. `example_media.json` records
-coverage, failures, provenance, effective seeds, and GIF checksums. The extraction manifest retains
+Generated GIFs appear in collapsed **Animated example** disclosures. Every output-enabled example
+also gets a collapsed **Example output** panel containing copyable interpreter text, including
+expression results and tutorial diagnostics. Silent runs show *No output.* Text-only examples do
+not render GIFs. Runs still executing at 30 seconds retain their GIF and captured text, with an
+incomplete-output note; the generator lists capped examples by page, block, and GIF path for review.
+The exported [extraction limits](../reference/gaps.md) page also lists GIFs still executing at the cap.
+
+`example_media.json` records output text, completion status, coverage, failures, provenance,
+effective seeds, and GIF checksums. English localization files are included in provenance so changes
+to diagnostic messages invalidate cached output. The extraction manifest retains
 all source configurations, setup, and code. Stale or missing GIFs are not embedded during text export.
 
 `.media-cache/` contains local extracted assets, build artifacts, and adapted copies of game
@@ -77,4 +85,5 @@ python tools/test_media.py
 ```
 
 Set `TFWR_GAME_DIR` to the installation and `TFWR_DOTNET` to the SDK executable to additionally
-run the offline farming, mining, determinism, and loop-limit checks against a built `.media-cache/bridge`.
+run offline farming, mining, determinism, output, diagnostic, and loop-limit checks against a built
+`.media-cache/bridge`. Use the virtual environment's Python to include the renderer check.

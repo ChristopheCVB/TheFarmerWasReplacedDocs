@@ -34,6 +34,13 @@ tuple = 1, 2
 print(tuple)
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>(1,2)</pre>
+
+</details>
+
 You can also unpack them into several variables. In the code below, the tuple `(1, 2)` is unpacked into two variables, `a` and `b`.
 
 **Example conditions**
@@ -62,6 +69,14 @@ print(a)
 a, b = b, a
 print(a)
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>1
+2</pre>
+
+</details>
 
 Tuples can be indexed like lists, but they are immutable and cannot be changed after creation.
 
@@ -92,6 +107,18 @@ print(tuple[1])
 tuple[0] = 3
 ```
 
+<details>
+<summary>Example output</summary>
+
+<pre>2
+Error: You can&#x27;t assign a tuple element because tuples are immutable.
+In:&#32;
+tuple[0] = 3
+      ^^   &#32;
+--------------------------------------------------------------------</pre>
+
+</details>
+
 Unlike lists, tuples can be used as keys in dictionaries.
 
 **Example conditions**
@@ -119,6 +146,13 @@ d = {(1,2):(4,5)}
 
 print(d[(1,2)])
 ```
+
+<details>
+<summary>Example output</summary>
+
+<pre>(4,5)</pre>
+
+</details>
 
 They can also be useful for returning multiple values in a function.
 
@@ -148,6 +182,13 @@ def f():
 
 a, b = f()
 ```
+
+<details>
+<summary>Example output</summary>
+
+*No output.*
+
+</details>
 
 ---
 

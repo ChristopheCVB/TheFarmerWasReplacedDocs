@@ -294,23 +294,44 @@ public static class Bridge
             return new { id = MeshId(d.hat.hatSO.hatMesh), matrix = Matrix(d.GetTransform()), digging = d.GetDiggingTimeRemaining(), position = new[] { d.pos.x, d.pos.y, d.depth }, hat = d.hat.hatSO.hatName };
         }).ToArray();
         var inventory = ResourceManager.GetAllItems().ToDictionary(i => i.itemName, i => sim.farm.Items.GetNumber(i.itemId));
-        return new { time = sim.CurrentTime.Seconds, executing = sim.IsExecuting(), tiles, meshes, drones, inventory, output = runner.Logger.GetOutputString() };
+        return new { time = sim.CurrentTime.Seconds, executing = sim.IsExecuting() && !HasError(sim), tiles, meshes, drones, inventory, output = runner.Logger.GetOutputString() };
     }
+    static bool HasError(Simulation sim) => (bool)typeof(Simulation).GetField("hasError", Flags).GetValue(sim);
     static void Slice(Simulation sim, Duration target, object gate, bool setup = false)
     {
         try { while (true) sim.RunNextStep(target, gate, setup); }
-        catch (Shim.SliceComplete) { if (!setup && sim.CurrentTime < target) throw new InvalidOperationException("Unexpected simulator yield"); }
+        catch (Shim.SliceComplete) { if (!setup && sim.CurrentTime < target && sim.IsExecuting() && !HasError(sim)) throw new InvalidOperationException("Unexpected simulator yield"); }
     }
-    static void Start(Simulation sim, string code)
+    static ProgramState Start(Simulation sim, string code)
     {
-        Tokenizer.Tokenize(code + "\n", out var tokens);
+        code += "\n";
+        Tokenizer.Tokenize(code, out var tokens);
         var window = (CodeWindow)RuntimeHelpers.GetUninitializedObject(typeof(CodeWindow)); Shim.Init(window);
         var functions = typeof(CodeWindow).GetField("parsedFunctions", Flags); functions.SetValue(window, Activator.CreateInstance(functions.FieldType));
-        var program = Parser.Parse(tokens, window); sim.StartProgramExecution(new Execution(sim, program.syntaxTree, 0));
+        var inputField = typeof(CodeWindow).GetField("codeInput", Flags);
+        var input = RuntimeHelpers.GetUninitializedObject(inputField.FieldType);
+        inputField.FieldType.GetField("m_Text", Flags).SetValue(input, code); inputField.SetValue(window, input);
+        var program = Parser.Parse(tokens, window); var execution = new Execution(sim, program.syntaxTree, 0);
+        var state = execution.MainState; sim.StartProgramExecution(execution); return state;
     }
     static void Run(string resources, string requestPath)
     {
         LoadResources(resources); PathIds = Objects.ToDictionary(k => k.Value, v => v.Key, ReferenceEqualityComparer.Instance);
+        var english = typeof(Localizer).GetMethod("LoadLangFromLocalPath", Flags).Invoke(null,
+            new object[] { Path.Combine(Path.GetDirectoryName(Root), "StreamingAssets/Languages/EN/Strings") });
+        foreach (var name in new[] { "en", "language" }) typeof(Localizer).GetField(name, Flags).SetValue(null, english);
+        // Native diagnostic formatting needs a theme, but its color tags are discarded on export.
+        var theme = new ColorTheme();
+        foreach (var name in new[] { "ui", "docs", "code", "unlocks" })
+        {
+            var field = typeof(ColorTheme).GetField(name, Flags); field.SetValue(theme, Activator.CreateInstance(field.FieldType));
+        }
+        var themes = RuntimeHelpers.GetUninitializedObject(typeof(ThemeManager));
+        typeof(ThemeManager).GetField("currentTheme", Flags).SetValue(themes, theme);
+        typeof(ThemeManager).GetField("<Inst>k__BackingField", Flags).SetValue(null, themes);
+        var workspace = RuntimeHelpers.GetUninitializedObject(typeof(Workspace));
+        var windows = typeof(Workspace).GetField("codeWindows", Flags); windows.SetValue(workspace, Activator.CreateInstance(windows.FieldType));
+        typeof(MainSim).GetField("workspace", Flags).SetValue(MainSim.Inst, workspace);
         using var doc = JsonDocument.Parse(File.ReadAllText(requestPath)); var request = doc.RootElement;
         var settings = JsonSerializer.Deserialize<CodeExample.CodeExampleSettings>(request.GetProperty("config").GetRawText(), new JsonSerializerOptions { IncludeFields = true });
         var runner = new Runner { InstalledDlcs = (Platforms.EDlcMask)(settings.dlc_enabled ? 1 : 0) };
@@ -323,21 +344,37 @@ public static class Bridge
         var sim = new Simulation(runner, runner.InstalledDlcs, unlocks, items, "", "", (LeaderboardType)0, true, seed, null, null, false, settings.action_ticks, settings.operation_ticks, settings.world_size, settings.starting_chunk, null, null, null);
         typeof(MainSim).GetField("sim", Flags).SetValue(MainSim.Inst, sim);
         var gate = new object(); Start(sim, request.GetProperty("setup").GetString()); Slice(sim, sim.CurrentTime + Duration.FromSeconds(1000), gate, true);
+        if (HasError(sim)) throw new InvalidOperationException("Example setup failed: " + runner.Logger.GetOutputString());
         if (sim.IsExecuting()) throw new NotSupportedException("Setup exceeds 1000 simulation seconds");
-        double start = sim.CurrentTime.Seconds; runner.Logger = new(false); Start(sim, request.GetProperty("code").GetString());
-        var execution = sim.Execution;
+        double start = sim.CurrentTime.Seconds; runner.Logger = new(false);
+        var code = request.GetProperty("code").GetString();
+        ProgramState state = null;
+        try { state = Start(sim, code); }
+        catch (ParseException error)
+        {
+            var text = new System.Text.StringBuilder("Error: " + Localizer.Localize(error.Message) + "\nIn: \n");
+            ProgramState.AppendLineWithIndicatorAtIndex(code + "\n", error.startIndex, error.endIndex, text);
+            runner.Logger.Log(text.ToString());
+        }
         sim.ChangeExecutionSpeed(settings.execution_speed); sim.ChangeDiggingSpeed(settings.digging_speed);
         var frames = new List<object>(); int? done = null;
-        for (int frame = 0; frame < 225; frame++)
+        for (int frame = 0; frame < 450; frame++)
         {
             Slice(sim, Duration.FromSeconds(start + frame / 15.0), gate);
-            if (!sim.IsExecuting() && done == null)
+            if ((!sim.IsExecuting() || HasError(sim)) && done == null)
             {
                 done = frame;
-                if (settings.print_last_result) runner.Logger.Log(execution.MainState.ReturnValue.ToString());
+                if (settings.print_last_result && state != null && !HasError(sim))
+                {
+                    var ui = RuntimeHelpers.GetUninitializedObject(typeof(UISim));
+                    typeof(UISim).GetField("mainProgramState", Flags).SetValue(ui, state);
+                    typeof(UISim).GetField("logger", Flags).SetValue(ui, runner.Logger);
+                    typeof(UISim).GetMethod("PrintLastResult", Flags).Invoke(ui, null);
+                }
             }
-            frames.Add(Snapshot(sim, runner)); if (done != null && frame >= done + 14) break;
+            if (settings.show_image) frames.Add(Snapshot(sim, runner));
+            if (done != null && (!settings.show_image || frame >= done + 14)) break;
         }
-        Console.WriteLine(JsonSerializer.Serialize(new { seed, completed = done != null, frames }));
+        Console.WriteLine(JsonSerializer.Serialize(new { seed, completed = done != null, output = runner.Logger.GetOutputString(), frames }));
     }
 }
