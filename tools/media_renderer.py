@@ -110,7 +110,8 @@ class Renderer:
                     continue
                 pose = trimesh.transformations.rotation_matrix(
                     math.radians(decoration['fixedRotation']), [0, 0, 1])
-                pose[:3, 3] = [-tile['x'], tile['y'], -tile['depth']]
+                # Decoration meshes are authored relative to the block center.
+                pose[:3, 3] = [-tile['x'], tile['y'], -tile['depth'] - 0.5]
                 scene.add(self.mesh(mesh_id), pose=FLIP @ pose @ FLIP)
         for model in frame['meshes'] + frame['drones']:
             pose = FLIP @ np.asarray(model['matrix']).reshape(4, 4) @ FLIP

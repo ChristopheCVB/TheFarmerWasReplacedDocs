@@ -1,8 +1,8 @@
 {
   "unity_version": "6000.0.43f1",
   "assemblies": {
-    "Core.dll": "8eb39f657f2c2dc3eb7438b709bb066852fc83cffb7c64d64e86cf59de119e74",
-    "Utils.dll": "d7ada71927581528a1e854f764540d16193c8cd859895deff56c7266bb9136a1"
+    "Core.dll": "fa1e0045aee3db3fae92af9bc30f5dd607c98edc6eadbbb88858c24d9b0ac13a",
+    "Utils.dll": "13b692a1519b22f3a2f751170ff4808a61870329c5c1faf3114ae8802afce63a"
   },
   "types": {
     "EntitySO": {

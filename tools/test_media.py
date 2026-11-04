@@ -8,6 +8,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from code_examples import animations, collect, identify, parse_block, plain_output, recordings
 from export_docs import examples, Exporter
@@ -195,6 +196,47 @@ class GameTests(unittest.TestCase):
         result = self.run_example(self.source('unlocks/mushroom.md', 2))
         self.assertTrue(result['frames'])
         self.assertTrue(any(tile['ground'] == 'mushroom' for frame in result['frames'] for tile in frame['tiles']))
+
+    @unittest.skipUnless(importlib.util.find_spec('pyrender'), 'Optional renderer packages are not installed')
+    def test_ground_decorations_use_the_block_center_at_each_depth(self):
+        from media_renderer import Renderer
+        import numpy as np
+
+        renderer = Renderer(self.root / '.media-cache/assets', self.source('unlocks/plant.md')['config'])
+        try:
+            with patch.object(renderer.renderer, 'render', wraps=renderer.renderer.render) as render:
+                for ground in ['grassland', 'soil']:
+                    for depth in [0, 3]:
+                        with self.subTest(ground=ground, depth=depth):
+                            tile = dict(x=2, y=1, depth=depth, ground=ground, color=[0.7, 0.5, 0.2, 1])
+                            renderer.render(dict(tiles=[tile], meshes=[], drones=[], inventory={}, output=''))
+                            scene = render.call_args.args[0]
+                            decoration = renderer.grounds[ground]['decorations'][0]
+                            mesh = renderer.mesh(decoration['mesh']['m_PathID'])
+                            node, = [node for node in scene.mesh_nodes if node.mesh is mesh]
+                            np.testing.assert_allclose(scene.get_pose(node)[:3, 3], [2, 1, -depth - 0.5])
+                            block, = [node for node in scene.mesh_nodes if node.mesh is renderer.block(tile['color'])]
+                            top = scene.get_pose(block) @ np.array([0, 0, 0.5, 1])
+                            self.assertAlmostEqual(top[2], -depth)
+        finally:
+            renderer.close()
+
+    @unittest.skipUnless(importlib.util.find_spec('pyrender'), 'Optional renderer packages are not installed')
+    def test_young_bush_is_visible_above_grassland(self):
+        from media_renderer import Renderer
+        import numpy as np
+
+        example = self.source('unlocks/plant.md')
+        frame = self.run_example(example)['frames'][-1]
+        self.assertEqual(frame['tiles'][0]['entity'], 'bush')
+        self.assertTrue(frame['meshes'])
+        renderer = Renderer(self.root / '.media-cache/assets', example['config'])
+        try:
+            with_bush = np.asarray(renderer.render(frame))
+            without_bush = np.asarray(renderer.render(dict(frame, meshes=[])))
+            self.assertTrue(np.any(with_bush != without_bush), 'Grassland hides the young bush')
+        finally:
+            renderer.close()
 
     @unittest.skipUnless(importlib.util.find_spec('pyrender'), 'Optional renderer packages are not installed')
     def test_zero_scale_growth_meshes_render(self):
