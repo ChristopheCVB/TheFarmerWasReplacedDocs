@@ -72,6 +72,15 @@ for i in range(6):
     move(East)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/pyramid-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ## Restoring the Pyramid
 
 As you can see, there are several holes in the sand which will need to be filled. When you fill these holes and restore the pyramid to its previous state, it destroys itself and a large sunflower spawns in the middle of the limestone base. Harvest it to receive `Items.Power`. The larger the pyramid you completed, the more power you receive.
@@ -136,6 +145,15 @@ for i in range(3):
         move(North)
     move(East)
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/unlocks/pyramid-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 A correctly restored pyramid consists of a square limestone foundation with odd-numbered side lengths, for example 5x5. Above it is a layer of sand blocks of the same size (5x5), followed by progressively smaller layers: 3x3, then 1x1.
 

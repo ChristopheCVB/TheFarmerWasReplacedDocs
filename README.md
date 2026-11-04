@@ -20,6 +20,7 @@ Complete installed English guides and gameplay reference, including Underground/
 65 guide pages; 91 code reference entries;
 361 source text entries;
 146 interactive examples converted to code and starting conditions;
+76 offline example GIFs;
 183 packaged gameplay records; 5 extracted illustrations.
 
 Packaged records: 26 grounds, 38 hats, 20 items, 30 leaderboards, 16 objects, 53 unlocks.
@@ -27,8 +28,12 @@ Packaged records: 26 grounds, 38 hats, 20 items, 30 leaderboards, 16 objects, 53
 ## Reading the reference
 
 All unlock-gated content and hints are visible. Examples use the game's Python-like language.
-Example conditions preserve gameplay configuration; visual and playback settings are omitted.
-No example code was executed, and output is not invented.
+Example conditions preserve gameplay configuration. Complete source examples, including visual
+settings, are retained in the extraction manifest. Optional GIFs execute the game's interpreter
+offline and render extracted models with simplified lighting and effects. Expand **Animated
+example** beneath supported examples to view them. Clips show at most 15 seconds of execution.
+Code and conditions remain available for all examples.
+Media coverage and unsupported examples are recorded in `tools/example_media.json` when generated.
 
 Reference tables contain stored base values, not unconditional promises about gameplay.
 Upgrades, neighbors, depth, and controller logic can change actual values. Upgrade cost arrays
@@ -51,7 +56,7 @@ Source references are relative to the game installation. Unity version: `6000.0.
 The extraction manifest retains the UTC export timestamp, source hashes, and entry coverage.
 
 UI labels, settings, errors, warnings, news, audio, and unrelated artwork are excluded.
-Live output and personal statistics require a running game.
+Live farm output and personal statistics require a running game; GIF output comes from offline examples.
 
 ## All guides
 

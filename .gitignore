@@ -1,0 +1,7 @@
+__pycache__/
+.venv/
+.media-cache/
+**/obj/
+**/bin/
+assets/examples/**/tmp*/
+

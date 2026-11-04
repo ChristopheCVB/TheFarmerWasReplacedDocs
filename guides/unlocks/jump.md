@@ -59,6 +59,15 @@ for i in range(get_world_size()):
     move(East)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/jump-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ## Compatible Unlocks
 
 `jump()` only works with the following mining unlocks:

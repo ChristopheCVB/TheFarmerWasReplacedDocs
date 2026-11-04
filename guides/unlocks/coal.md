@@ -53,6 +53,15 @@ while get_ground_type() != Grounds.Coal:
 dig()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/coal-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ## Note About Cave-ins
 
 Note that you only get coal for the coal blocks you directly dig into, not for any blocks that cave in around the drone. Keep this in mind when thinking about how to mine coal, so that you can maximize the coal blocks you mine versus the ones that are lost to cave-in.

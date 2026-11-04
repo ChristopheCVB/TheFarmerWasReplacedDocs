@@ -94,6 +94,15 @@ move_n_dir(2, North)
 move_n_dir(2, East)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/scripting/functions-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 When you see `def function():` you should really think of it as a variable assignment like this:
 `function = create_new_function_object()`
 As with all assignments, you can't use the variable before it has been assigned!
@@ -164,6 +173,15 @@ if xor(True, False):
 	do_a_flip()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 4](../../assets/examples/scripting/functions-04.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 [Tuples](tuples.md) allow returning multiple values.
 
 ## Default Arguments
@@ -205,6 +223,15 @@ f()
 f(True)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 5](../../assets/examples/scripting/functions-05.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 An argument that has a default value cannot be followed by an argument that doesn't have a default value.
 
 ## Advanced Function Usage
@@ -245,6 +272,15 @@ def f():
 
 f()()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 6](../../assets/examples/scripting/functions-06.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 Here, `f()` calls the function `f`, which defines and returns a new function, `d`. The second `()` then executes the returned function and performs a flip.
 (Doing this sort of thing is usually not a good idea because it's hard to see what's going on.)
@@ -289,6 +325,15 @@ f(move, East)
 plant(Entities.Tree)
 f(use_item, Items.Fertilizer)
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 7](../../assets/examples/scripting/functions-07.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 ---
 

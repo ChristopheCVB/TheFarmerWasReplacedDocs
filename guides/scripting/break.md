@@ -76,6 +76,15 @@ while True:
 harvest()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/scripting/break-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 This code runs the `while` loop until `can_harvest()` is `True`.
 It has the same effect as:
 
@@ -115,6 +124,15 @@ while not can_harvest():
 	pass
 harvest()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 3](../../assets/examples/scripting/break-03.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 In nested loops, `break` always exits the innermost loop.
 

@@ -56,6 +56,15 @@ harvest()
 harvest()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/scripting/while-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 This allows you to harvest several times in one program run.
 However, it would be nice to harvest more than three times, and writing the same code multiple times quickly makes the program a mess.
 The solution is a loop.
@@ -111,6 +120,15 @@ while False:
 	do_a_flip()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/scripting/while-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 or
 
 **Example conditions**
@@ -142,6 +160,15 @@ or
 while True:
 	do_a_flip()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 3](../../assets/examples/scripting/while-03.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 The first will never perform a flip, and the second will perform flips forever (an infinite loop).
 
@@ -185,6 +212,15 @@ while True:
 	pet_the_piggy()
 harvest()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 4](../../assets/examples/scripting/while-04.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 ---
 

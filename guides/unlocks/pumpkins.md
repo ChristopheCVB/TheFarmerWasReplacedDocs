@@ -62,6 +62,15 @@ do_a_flip()
 harvest()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/pumpkins-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 When a pumpkin dies, it leaves behind a dead pumpkin that won't drop anything when harvested. Planting a new plant in its place automatically removes the dead pumpkin, so there is no need to harvest it. `can_harvest()` always returns `False` on dead pumpkins.
 
 The yield of a giant pumpkin depends on the size of the pumpkin.

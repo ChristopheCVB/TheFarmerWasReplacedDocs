@@ -138,6 +138,15 @@ for _ in range(3):
 print(entity_dict)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 4](../../assets/examples/scripting/dicts-04.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 Keys are unique, so adding a key that already exists in the dictionary will overwrite the previous value.
 
 Use `dict.pop(key)` to remove a key-value pair from `dict`.

@@ -47,6 +47,15 @@ if get_pos_x() == 1 and get_pos_y() == 0:
     do_a_flip()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/senses-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 `num_items(item)` returns how many of an item you have.
 
 **Example conditions**
@@ -82,6 +91,15 @@ if get_pos_x() == 1 and get_pos_y() == 0:
 ```python
 print(num_items(Items.Hay))
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/unlocks/senses-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 `get_entity_type()` and `get_ground_type()` return the type of entity or ground that is under the drone.
 
@@ -125,6 +143,15 @@ print(get_ground_type())
 if get_ground_type() != Grounds.Soil:
 	do_a_flip()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 3](../../assets/examples/unlocks/senses-03.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 The `None` keyword is also unlocked now! `None` is a value that represents that there is no value.
 For example, a function that has no `return` statement will actually return `None`.

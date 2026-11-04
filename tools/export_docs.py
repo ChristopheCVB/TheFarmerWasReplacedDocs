@@ -12,6 +12,7 @@ import shutil
 from urllib.parse import unquote, urlsplit
 
 from packaged_assets import extract
+from code_examples import BLOCKS, animations, collect, identify, parse_block
 
 
 STRING_FILES = ('code_tooltips', 'unlock_tooltips', 'object_tooltips',
@@ -62,18 +63,13 @@ def generic_data_locations(text):
         'Its actual location depends on the platform and launcher.\n\n', text)
 
 
-def examples(text):
+def examples(text, animations=None):
     count = 0
     def convert(match):
         nonlocal count
         count += 1
-        block = match[1].lstrip()
-        config, end = json.JSONDecoder().raw_decode(block)
-        remainder = block[end:].strip('\n')
-        if '\n#CODE\n' not in '\n' + remainder + '\n':
-            raise ValueError('Interactive example is missing #CODE')
-        setup, code = re.split(r'^#CODE[ \t]*\n', remainder, maxsplit=1, flags=re.M)
-        setup = re.sub(r'^#SETUP[ \t]*\n?', '', setup).strip('\n')
+        example = parse_block(match[1])
+        config, setup, code = (example[key] for key in ('config', 'setup', 'code'))
         relevant = {key: value for key, value in config.items()
                     if key not in {'camera_position', 'show_image', 'image_size', 'show_code',
                                    'show_inventory', 'show_output', 'collapsing', 'autoplay'}}
@@ -83,9 +79,15 @@ def examples(text):
                 json.dumps(relevant, ensure_ascii=False, indent=2), 'json') + '\n'
         if setup.strip():
             result += '**Example setup**\n' + fenced(setup) + '\n'
-        return result + '**Example code**\n' + fenced(code) + '\n'
-    result = re.sub(r'\{\{codeexample[ \t]*\n(.*?)^\}\}[ \t]*(?=$|<)', convert, text,
-                    flags=re.M | re.S)
+        result += '**Example code**\n' + fenced(code) + '\n'
+        if animations and count in animations:
+            result += ('<details>\n<summary>Animated example</summary>\n\n'
+                       f'![Animated example {count}]({animations[count]})\n\n'
+                       '*Offline recreation using extracted game models; simplified visuals. '
+                       'Clips are limited to 15 seconds.*\n\n'
+                       '</details>\n')
+        return result
+    result = BLOCKS.sub(convert, text)
     if '{{codeexample' in result:
         raise ValueError('Unconverted interactive example')
     return result, count
@@ -132,6 +134,9 @@ class Exporter:
         self.routes = {}
         self.gaps = []
         self.example_count = 0
+        self.examples = []
+        self.animation_paths = set()
+        self.animations = {}
 
     def source_entry(self, key, page):
         if key not in self.all_strings:
@@ -235,6 +240,9 @@ class Exporter:
             relative = source.relative_to(self.source).as_posix()
             destination = 'guides/' + source.relative_to(self.source / 'docs').as_posix()
             self.routes[relative] = destination
+            self.examples.extend(collect(source.read_text(encoding='utf-8-sig'), destination))
+        self.animations = animations(self.output, self.examples, self.game)
+        self.animation_paths = {entry['gif'] for entry in self.animations.values()}
         for record in records:
             route = f"{record['category']}/{record['name']}"
             self.routes[route] = route + '.md'
@@ -263,9 +271,11 @@ class Exporter:
                         self.routes[f'{category}/{name}'] = page
         for source in guides:
             raw = source.read_text(encoding='utf-8-sig')
-            text, count = examples(generic_data_locations(raw))
-            self.example_count += count
             path = self.routes[source.relative_to(self.source).as_posix()]
+            media = {entry['ordinal']: entry['gif'] for entry in self.animations.values()
+                     if entry['page'] == path}
+            text, count = examples(generic_data_locations(raw), media)
+            self.example_count += count
             self.add_page(path, text + f'\n\nSource: `EN/{source.relative_to(self.source).as_posix()}`.\n')
         templates = '# Tooltip templates and localized labels\n\n'
         templates += ('These supplementary source entries include labels and templates filled by the game. '
@@ -279,9 +289,11 @@ class Exporter:
         self.add_page('reference/gaps.md', '# Extraction limits and missing descriptions\n\n'
                       + '\n'.join('- ' + gap for gap in sorted(self.gaps))
                       + '\n\n- Live output, personal statistics, and live item blocks require a running game.\n'
-                      '- Interactive example animations are represented by code and starting conditions; '
-                      'their output is not simulated.\n'
-                      '- Visual ground decorations, meshes, sounds, and unrelated artwork are excluded.\n'
+                      '- Examples retain their code and starting conditions. Optional offline GIFs use '
+                      'the game interpreter and extracted models with simplified visuals. '
+                      'Unsupported examples are listed in `tools/example_media.json` when media has been generated.\n'
+                      '- Standalone meshes, sounds, and unrelated artwork are excluded; '
+                      'optional GIFs render extracted geometry.\n'
                       '- Static base settings do not reconstruct controller-specific or upgrade formulas.\n'
                       '- The exporter checks assembly hashes and Unity version to reject unsupported builds.\n')
         return guides
@@ -297,10 +309,13 @@ class Exporter:
                     suffix += '/'
                 return label + ' (`<game-data>/' + suffix + '`)'
             if image:
-                if target not in IMAGE_NAMES:
+                if target in getattr(self, 'animation_paths', set()):
+                    destination = target
+                elif target in IMAGE_NAMES:
+                    destination = f'assets/{target}.png'
+                    label = IMAGE_LABELS[target]
+                else:
                     raise ValueError(f'Unknown game image: {target}')
-                destination = f'assets/{target}.png'
-                label = IMAGE_LABELS[target]
             elif target in self.routes:
                 destination = self.routes[target]
             else:
@@ -365,6 +380,7 @@ Complete installed English guides and gameplay reference, including Underground/
 {len(guides)} guide pages; {len(self.strings['code_tooltips'])} code reference entries;
 {sum(len(group) for group in self.strings.values())} source text entries;
 {self.example_count} interactive examples converted to code and starting conditions;
+{len(self.animations)} offline example GIFs;
 {len(records)} packaged gameplay records; {len(images)} extracted illustrations.
 
 Packaged records: {', '.join(f'{n} {category}' for category, n in sorted(counts.items()))}.
@@ -372,8 +388,12 @@ Packaged records: {', '.join(f'{n} {category}' for category, n in sorted(counts.
 ## Reading the reference
 
 All unlock-gated content and hints are visible. Examples use the game's Python-like language.
-Example conditions preserve gameplay configuration; visual and playback settings are omitted.
-No example code was executed, and output is not invented.
+Example conditions preserve gameplay configuration. Complete source examples, including visual
+settings, are retained in the extraction manifest. Optional GIFs execute the game's interpreter
+offline and render extracted models with simplified lighting and effects. Expand **Animated
+example** beneath supported examples to view them. Clips show at most 15 seconds of execution.
+Code and conditions remain available for all examples.
+Media coverage and unsupported examples are recorded in `tools/example_media.json` when generated.
 
 Reference tables contain stored base values, not unconditional promises about gameplay.
 Upgrades, neighbors, depth, and controller logic can change actual values. Upgrade cost arrays
@@ -396,43 +416,9 @@ Source references are relative to the game installation. Unity version: `{versio
 The extraction manifest retains the UTC export timestamp, source hashes, and entry coverage.
 
 UI labels, settings, errors, warnings, news, audio, and unrelated artwork are excluded.
-Live output and personal statistics require a running game.
+Live farm output and personal statistics require a running game; GIF output comes from offline examples.
 '''
-        maintenance = '''[Documentation index](../README.md)
-
-# Exporter maintenance and validation
-
-## Sources
-
-Text: `TheFarmerWasReplaced_Data/StreamingAssets/Languages/EN/docs/` and the six
-gameplay reference files in `EN/Strings/`. Illustrations and gameplay records:
-`resources.assets`, its external stream, and script metadata from `globalgamemanagers.assets`.
-Serialized field layouts were recovered from `Managed/Core.dll` and `Managed/Utils.dll`.
-The extraction manifest records the Unity version, UTC export timestamp, source hashes,
-and source-entry coverage. All source paths are relative to the installation.
-
-## Regeneration
-
-Requires **Python 3.10 or later**, with no third-party packages.
-The reader supports the installed build and validates its Unity version and assembly hashes.
-
-From the collection's root directory, substitute the game installation directory:
-
-```sh
-python tools/export_docs.py --game-dir /path/to/game
-python tools/test_export.py
-```
-
-Output defaults to this directory. Use `--output` to generate a separate collection.
-Existing generated pages are overwritten; unrelated files are not removed.
-The installation is read only. Only the exported collection is written.
-
-To validate an existing collection without exporting:
-
-```sh
-python tools/export_docs.py --validate-only
-```
-'''
+        maintenance = Path(__file__).with_name('README.md').read_text(encoding='utf-8')
         readme += '\n## All guides\n\n' + '\n'.join(
             f'- [{source.stem.replace("_", " ")}](guides/{source.relative_to(self.source / "docs").as_posix()})'
             for source in guides) + '\n'
@@ -448,6 +434,7 @@ python tools/export_docs.py --validate-only
                          'globalgamemanagers.assets', 'Managed/Core.dll', 'Managed/Utils.dll']]
         manifest = {'unity_version': version, 'created_utc': datetime.now(timezone.utc).isoformat(),
                     'guide_count': len(guides), 'example_count': self.example_count,
+                    'examples': self.examples, 'animations': list(self.animations.values()),
                     'string_counts': {name: len(values) for name, values in self.strings.items()},
                     'record_counts': dict(counts), 'images': images, 'gaps': sorted(self.gaps),
                     'source_entries': dict(sorted(self.coverage.items())),
@@ -458,8 +445,11 @@ python tools/export_docs.py --validate-only
         tools.mkdir(exist_ok=True)
         script_root = Path(__file__).resolve().parent
         for name in ['export_docs.py', 'packaged_assets.py', 'layouts.json', 'test_export.py',
-                     'requirements.txt']:
+                     'requirements.txt', 'code_examples.py', 'generate_examples.py',
+                     'media_assets.py', 'media_renderer.py', 'requirements-media.txt', 'test_media.py',
+                     'game_bridge/Bridge.csproj', 'game_bridge/Program.cs']:
             if (tools / name).resolve() != (script_root / name).resolve():
+                (tools / name).parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(script_root / name, tools / name)
         (tools / 'extraction_manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
         return manifest
@@ -500,8 +490,35 @@ def validate(output):
         raw = (output / 'assets' / (image['name'] + '.png')).read_bytes()
         if raw[:8] != b'\x89PNG\r\n\x1a\n' or len(raw) < 40:
             raise ValueError(f'Invalid illustration: {image["name"]}')
+    if 'examples' in manifest:
+        all_examples = {entry['id']: entry for entry in manifest['examples']}
+        if len(all_examples) != manifest['example_count']:
+            raise ValueError('Example coverage is incomplete or contains duplicate IDs')
+        for entry in all_examples.values():
+            source = {key: entry[key] for key in ('config', 'setup', 'code')}
+            expected = identify(source, entry['page'], entry['ordinal'])
+            if any(entry[key] != expected[key] for key in ('id', 'source_hash', 'gif')):
+                raise ValueError('Invalid example identity or source hash')
+        for animation in manifest.get('animations', []):
+            entry = all_examples.get(animation['id'])
+            if (entry is None or animation['source_hash'] != entry['source_hash']
+                    or animation['gif'] != entry['gif'] or animation['status'] != 'generated'
+                    or not entry['config'].get('show_image', True)):
+                raise ValueError('Animation does not match a visual source example')
+            path = (output / animation['gif']).resolve()
+            if not path.is_relative_to(output.resolve()):
+                raise ValueError('Unsafe animation path')
+            raw = path.read_bytes()
+            size = entry['config'].get('image_size', {'x': 500, 'y': 300})
+            if (raw[:6] not in (b'GIF87a', b'GIF89a') or len(raw) < 14 or raw[-1:] != b';'
+                    or int.from_bytes(raw[6:8], 'little') != size['x']
+                    or int.from_bytes(raw[8:10], 'little') != size['y']
+                    or hashlib.sha256(raw).hexdigest() != animation['sha256']
+                    or not 0 < animation['duration'] <= 15.05):
+                raise ValueError(f'Invalid animation: {animation["id"]}')
     return {'pages': len(manifest['pages']), 'local_links': links,
             'source_entries': expected_entries, 'examples': manifest['example_count'],
+            'animations': len(manifest.get('animations', [])),
             'images': len(manifest['images']), 'description_gaps': len(manifest['gaps'])}
 
 

@@ -51,6 +51,15 @@ if can_harvest():
 	do_a_flip()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/speed-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 You can think of a return value like this as if the function call expression `can_harvest()` gets replaced by the returned value `True` during the evaluation of the `if`.
 
 What happens when the above code runs:

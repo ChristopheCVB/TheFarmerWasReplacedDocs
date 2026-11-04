@@ -109,6 +109,15 @@ entities = [Entities.Tree, Entities.Carrot, Entities.Pumpkin]
 plant(entities[1])
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 3](../../assets/examples/scripting/lists-03.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 You can iterate over a list using a `for` loop. The following example adds up all the elements in the list.
 
 **Example conditions**

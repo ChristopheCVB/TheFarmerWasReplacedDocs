@@ -55,6 +55,15 @@ plant(Entities.Bamboo)
 move(East) # move away so the bamboo can grow
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/bamboo-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ## Fruits
 
 Bamboo grows exactly 1 block per second.
@@ -113,6 +122,15 @@ for i in range(3):
 move(West) # pluck fruit
 move(East) # move away again
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/unlocks/bamboo-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 ## Hover
 

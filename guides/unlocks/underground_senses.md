@@ -51,6 +51,15 @@ dig()
 print(get_pos_z())
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/underground_senses-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ## Ground Type
 
 `get_ground_type()` returns the type of ground under the drone. You can pass it a direction argument - for example, `get_ground_type(North)` - to get the ground type of a neighboring tile.
@@ -84,6 +93,15 @@ dig()
 if get_ground_type() == Grounds.Dirt:
     do_a_flip()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/unlocks/underground_senses-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 ## Hardness and Stability
 
@@ -128,6 +146,15 @@ print(get_hardness(), "|", get_stability())
 while get_hardness() == 2 and get_stability() == 3:
     dig()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 3](../../assets/examples/unlocks/underground_senses-03.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 Note that the four blocks directly next to the drone are removed regardless of their stability as the drone digs down, unless the block has a special function. Clay, iron, and quartz, for example, are not removed by this rule. They're still susceptible to cave-ins due to lack of block stability, however.
 

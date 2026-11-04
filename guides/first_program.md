@@ -73,6 +73,15 @@ harvest()
 harvest()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../assets/examples/first_program-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ## Unlocks
 
 Collecting grass will give you hay. Hay can be used to unlock loops in the tech tree. Open the tech tree with the button in the top right corner of the screen.

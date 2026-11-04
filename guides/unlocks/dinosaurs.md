@@ -67,6 +67,15 @@ while True:
         move(North)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/dinosaurs-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 When the hat is unequipped again by equipping a different hat, the tail will be harvested.
 You will receive an amount of bones equal to the tail length squared. For a tail of length `n`, you will receive `n**2` `Items.Bone`.
 For example:

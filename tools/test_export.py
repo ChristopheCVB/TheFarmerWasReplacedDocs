@@ -136,12 +136,27 @@ class CollectionTests(unittest.TestCase):
         self.assertIn('| Stability | 3 |', clay)
 
     def test_collection_uses_portable_paths(self):
+        def strings(value):
+            if isinstance(value, str):
+                yield value
+            elif isinstance(value, dict):
+                for key, item in value.items():
+                    yield key
+                    yield from strings(item)
+            elif isinstance(value, list):
+                for item in value:
+                    yield from strings(item)
+
         patterns = [r'(?<![\w])[A-Za-z]:[\\/][\w]', r'/mnt/[a-z]/', r'/home/[^/\s]+/',
                     r'(?i)AppData|LocalLow|%USERPROFILE%',
                     r'~/Library/', r'~/\.steam/']
         for path in self.root.rglob('*'):
+            if any(part in {'.media-cache', '.venv', '.git'} for part in path.relative_to(self.root).parts):
+                continue
             if path.is_file() and path.suffix in {'.md', '.json'}:
                 text = path.read_text(encoding='utf-8')
+                if path.suffix == '.json':
+                    text = '\n'.join(strings(json.loads(text)))
                 for pattern in patterns:
                     self.assertIsNone(re.search(pattern, text), f'{path.relative_to(self.root)}: {pattern}')
         manifest = json.loads((self.root / 'tools/extraction_manifest.json').read_text())

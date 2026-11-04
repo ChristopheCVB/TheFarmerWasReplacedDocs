@@ -47,6 +47,15 @@ do_a_flip()
 harvest()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/polyculture-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 A plant's companion preference can be `Entities.Grass`, `Entities.Bush`, `Entities.Tree`, or `Entities.Carrot`. Each plant chooses randomly, but it will always choose a different type of plant from itself. The position can be anywhere within 3 moves of the plant except the plant's own position.
 
 If there is no plant with a companion preference under the drone, `get_companion()` returns `None`.

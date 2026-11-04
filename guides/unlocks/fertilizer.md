@@ -48,6 +48,15 @@ use_item(Items.Fertilizer)
 harvest()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/fertilizer-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 This has some side effects.
 Plants grown with fertilizer will be infected.
 
@@ -108,6 +117,15 @@ for _ in range(6):
     use_item(Items.Weird_Substance)
     move(East)
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/unlocks/fertilizer-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 ---
 

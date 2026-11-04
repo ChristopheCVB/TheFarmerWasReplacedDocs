@@ -54,6 +54,15 @@ harvest()
 till()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/carrots-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 You can see the cost of any plant on its [own page](../../objects/carrot.md).
 
 ---

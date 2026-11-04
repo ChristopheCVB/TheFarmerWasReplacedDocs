@@ -81,6 +81,15 @@ place(Grounds.Block_Red)
 do_a_flip()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/debug_place-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ---
 
 [Debug](../scripting/debug.md)      [Debug 2](debug2.md)      [Bamboo](bamboo.md)

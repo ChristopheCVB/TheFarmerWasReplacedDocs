@@ -47,6 +47,15 @@ while get_ground_type() != Grounds.Clay:
 plant(Entities.Rice)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/rice-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 As long as your drone is above a `Grounds.Clay` block, you can use `plant(Entities.Rice)` to plant rice seedlings into the clay, then `can_harvest()` to check if the rice has fully grown, and finally `harvest()` to gain rice.
 
 ## Terraces

@@ -47,6 +47,15 @@ substance = size * 2**(num_unlocked(Unlocks.Mazes) - 1)
 use_item(Items.Weird_Substance, substance)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/mazes-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 For some reason the drone can't fly over the hedges, even though they don't look that high.
 
 There is a treasure hidden somewhere in the maze. Use `harvest()` on the treasure to receive gold equal to the area of the maze. For example, a 5x5 maze will yield 25 gold.
@@ -111,6 +120,15 @@ quick_print(
 if move(North) and get_entity_type() == Entities.Treasure:
     harvest()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/unlocks/mazes-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 If you have no idea how to get to the treasure, take a look at Hint 1. It shows you how to approach a problem like this.
 
@@ -197,6 +215,15 @@ do_a_flip()
 harvest()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 3](../../assets/examples/unlocks/mazes-03.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 **Show hint 3**
 
 Instead of moving the drone in absolute directions like east or west, it can be useful to move it in relative directions like "turn right" or "turn left." To do this, you need to keep track of the direction in which the drone is currently moving. The drone never actually rotates, but you can still maintain a "virtual" rotation in code.
@@ -244,6 +271,15 @@ move(directions[index])
 index = (index - 1) % 4
 move(directions[index])
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 4](../../assets/examples/unlocks/mazes-04.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 `% 4` is used to allow it to rotate "around the circle", so that `3 (West) + 1` is `0 (North)` again because `4 % 4 == 0` and `-1 % 4 == 3`.
 

@@ -64,6 +64,15 @@ for dir in circle_directions:
     print(measure()) # The number on the soot block
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/dynamite-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ## Dynamite Sweeper
 
 Can you find and dig all the dud dynamite blocks, leaving only live blocks behind? Every live block that's surrounded only by other live blocks or soot blocks will yield you extra dynamite once the dynamite stratum disappears.
@@ -162,6 +171,15 @@ for dir in circle_directions:
                 dig()
     move(dir)
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/unlocks/dynamite-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 ---
 

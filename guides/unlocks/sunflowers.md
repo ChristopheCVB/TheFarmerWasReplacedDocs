@@ -80,6 +80,15 @@ for _ in range(5):
     move(East)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/sunflowers-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 As long as you have power, the drone will use it to run twice as fast.
 It consumes 1 power every 30 actions, such as moves, harvests, or planting actions.
 Executing other code statements can also use power, but much less than drone actions.

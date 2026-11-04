@@ -68,6 +68,15 @@ for i in range(5):
     harvest()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/scripting/for-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 This loop executes the body a fixed number of times. It is essentially the same as writing
 
 **Example conditions**
@@ -113,6 +122,15 @@ harvest()
 i = 4
 harvest()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/scripting/for-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 ---
 

@@ -49,6 +49,15 @@ for _ in range(6):
     unlock(Unlocks.Grass)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/auto_unlock-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 To determine the cost of an unlock, simply use the `get_cost()` function as you would for a plant or item.
 
 **Example conditions**

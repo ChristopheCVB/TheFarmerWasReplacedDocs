@@ -46,6 +46,15 @@ change_hat(Hats.Brown_Hat)
 do_a_flip()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/hats-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ---
 
 [Dinosaurs](dinosaurs.md)      [First Program](../first_program.md)

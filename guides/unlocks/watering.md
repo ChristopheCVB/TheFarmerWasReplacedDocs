@@ -68,6 +68,15 @@ for i in range(5):
     move(East)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/watering-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ---
 
 [Fertilizer](fertilizer.md)

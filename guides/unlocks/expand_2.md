@@ -43,6 +43,15 @@ for i in range(5):
 	do_a_flip()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/expand_2-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 `range(n)` creates a sequence of `n` numbers from `0` to `n - 1`. The `for` loop runs its body once for every element in the sequence. In this example, `do_a_flip()` will be called `5` times.
 
 The function `get_world_size()` is also available now. It returns the side length of your farm. This way you can write code that won't break with the next expand upgrade.
@@ -83,6 +92,15 @@ for i in range(get_world_size()):
 	harvest()
 	move(North)
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/unlocks/expand_2-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 This example harvests one column of the farm for any farm size.
 
@@ -140,6 +158,15 @@ for i in range(get_world_size()):
 		move(North)
 	move(East)
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 3](../../assets/examples/unlocks/expand_2-03.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 ---
 

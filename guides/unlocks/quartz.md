@@ -65,6 +65,15 @@ while prospect_quartz() == None or prospect_quartz() >= 2:
 print(prospect_quartz())
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/quartz-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ## Vein Structure
 
 Quartz grows in needle-shaped veins that form vertical columns, making them quite difficult to find through trial and error.

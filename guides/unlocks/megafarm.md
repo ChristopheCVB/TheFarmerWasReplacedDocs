@@ -68,6 +68,15 @@ while True:
     do_a_flip()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/megafarm-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 As before, you still start with just one drone. Additional drones must first be spawned and will disappear after the program terminates.
 Each drone runs its own separate program. New drones can be spawned using the `spawn_drone(function)` function.
 
@@ -104,6 +113,15 @@ def drone_function():
 spawn_drone(drone_function)
 do_a_flip()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/unlocks/megafarm-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 This spawns a new drone in the same position as the drone that ran the `spawn_drone(function)` command. The new drone then begins executing the specified function. After it is done, it will disappear automatically, unless it is the last existing drone.
 
@@ -150,6 +168,15 @@ while True:
         move(East)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 3](../../assets/examples/unlocks/megafarm-03.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 This will cause your first drone to move horizontally and spawn more drones. The spawned drones will then move vertically and harvest everything in their path.
 
 If all available drones have already been spawned, `spawn_drone()` will do nothing and return `None`.
@@ -195,6 +222,15 @@ for dir in [North, East, South, West]:
         do_a_flip()
     spawn_drone(task)
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 4](../../assets/examples/unlocks/megafarm-04.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 ## All Drones Are Equal
 
@@ -244,6 +280,15 @@ def for_all(f):
 
 for_all(harvest)
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 5](../../assets/examples/unlocks/megafarm-05.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 One particularly useful pattern is to spawn a drone if one is available and otherwise do it yourself.
 
@@ -298,6 +343,15 @@ def get_entity_type_in_direction(dir):
 drone = spawn_drone(get_entity_type_in_direction, East)
 print(wait_for(drone))
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 6](../../assets/examples/unlocks/megafarm-06.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 Note that spawning drones takes time, so it's not a good idea to spawn a new drone for every little thing.
 

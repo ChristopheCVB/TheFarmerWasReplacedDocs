@@ -76,6 +76,15 @@ print("instructions: ", instructions)
 dig()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/treasure_map-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 You can use a `for` loop on the string to process it letter by letter:
 
 **Example conditions**

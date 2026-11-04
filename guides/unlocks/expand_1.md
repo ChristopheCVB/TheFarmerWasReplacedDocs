@@ -43,6 +43,15 @@ while True:
 	move(North)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/expand_1-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ---
 
 [While Loop](../scripting/while.md)      [Operators](../scripting/operators.md)      [Expand 2](expand_2.md)

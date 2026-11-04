@@ -57,6 +57,15 @@ for i in range(a):
 	do_a_flip()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/scripting/variables-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 The above loop is executed 5 times because `a` is set to `5`.
 The `i` in the `for` loop is also a variable. During each iteration, it is automatically assigned the current value from the sequence. It doesn't have to be called `i`; you can give it any valid variable name.
 
@@ -94,6 +103,15 @@ while i < a:
 	do_a_flip()
 	i = i + 1
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/scripting/variables-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 This does the same thing as the `for` loop above, but we have to increment `i` manually.
 To increment `i`, we set it to its current value plus `1`. Changing a variable based on its previous value is very common.

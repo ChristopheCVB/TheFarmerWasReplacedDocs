@@ -58,6 +58,15 @@ if prospect_iron() != None:
     move(prospect_iron()) # Move closer to the iron vein
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/prospecting-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 You may want to optimize this code with a variable because it currently calls `prospect_iron()` twice, costing 2 coal.
 
 ## Distance Calculation

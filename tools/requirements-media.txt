@@ -1,0 +1,6 @@
+# Optional GIF generator only; the documentation exporter remains standard-library-only.
+UnityPy==1.25.4
+TypeTreeGeneratorAPI==0.0.10
+numpy>=1.26,<3
+Pillow>=10,<13
+pyrender==0.1.45

@@ -54,6 +54,15 @@ for i in range(get_world_size()):
     move(East)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/mushroom-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ## How to Collect Mushrooms
 
 Mushrooms of the same type like to be together, but they are a bit too shy to grow on top of each other. Push the mushroom block below the drone with `push(direction)`.
@@ -109,6 +118,15 @@ for i in range(2):
     push(East) # Push the mushroom!
     move(East)
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/unlocks/mushroom-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 # Pushing Blocks
 

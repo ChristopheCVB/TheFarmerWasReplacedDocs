@@ -99,6 +99,15 @@ swap(West)
 harvest()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/cactus-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ## Number Examples
 
 In each of these grids, all the cacti are in sorted order and the harvest will spread over the entire field:
@@ -176,6 +185,15 @@ while not sorted:
             sorted = False
 harvest()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/unlocks/cactus-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 There are of course many ways to improve this strategy!
 After you manage to sort a single row, you can use Hint 1 to sort the entire field.

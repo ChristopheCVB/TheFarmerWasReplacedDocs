@@ -40,6 +40,15 @@ You can pass the type of plant you want to plant to the function like this:
 plant(Entities.Bush)
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/plant-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 This will plant a bush under the drone.
 
 Call `clear()` to reset the farm to all grass and reset the drone position.

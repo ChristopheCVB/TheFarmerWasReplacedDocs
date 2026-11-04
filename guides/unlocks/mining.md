@@ -65,6 +65,15 @@ do_a_flip()
 clear()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/mining-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 If you want to return to the surface, you can use `clear()` at any point. This also restores your farm.
 
 Hovering over a block will show its name, stability, and hardness.

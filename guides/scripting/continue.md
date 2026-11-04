@@ -78,6 +78,15 @@ while True:
 	harvest()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/scripting/continue-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 This code calls `harvest()` only when `can_harvest()` is `True`.
 It has the same effect as:
 
@@ -117,6 +126,15 @@ while True:
 	if can_harvest():
 		harvest()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 3](../../assets/examples/scripting/continue-03.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 In nested loops, `continue` always affects the innermost loop.
 

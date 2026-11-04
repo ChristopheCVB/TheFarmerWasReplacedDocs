@@ -57,6 +57,15 @@ while get_ground_type() != Grounds.Iron:
 dig()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/unlocks/iron-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ---
 
 [Stats](../stats.md)      [Mining](mining.md)      [Iron Prospecting](prospecting.md)      [Underground Senses](underground_senses.md)

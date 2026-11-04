@@ -47,6 +47,15 @@ else:
 	harvest()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 1](../../assets/examples/scripting/if-01.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 ## Syntax
 
 `if` statements allow you to run code only if a condition is `True`. They are like a `while` loop that doesn't loop.
@@ -84,6 +93,15 @@ if condition:
 	do_a_flip()
 ```
 
+<details>
+<summary>Animated example</summary>
+
+![Animated example 2](../../assets/examples/scripting/if-02.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
+
 You can also add an `else` block after the `if` block. The `else` block runs if the condition evaluates to `False`.
 
 **Example conditions**
@@ -119,6 +137,15 @@ if condition:
 else:
 	harvest()
 ```
+
+<details>
+<summary>Animated example</summary>
+
+![Animated example 3](../../assets/examples/scripting/if-03.gif)
+
+*Offline recreation using extracted game models; simplified visuals. Clips are limited to 15 seconds.*
+
+</details>
 
 `elif` is short for "else if".
 
